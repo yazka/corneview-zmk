@@ -11,6 +11,169 @@
 #include <dt-bindings/zmk/outputs.h>
 
 / {
+    behaviors {
+        tap_dance_out_tog: tap_dance_out_tog {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_OUT_TOG";
+            #binding-cells = <0>;
+            bindings = <&none>, <&none>, <&out OUT_TOG>;
+        };
+
+        tap_dance_ep_tog: tap_dance_ep_tog {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_EP_TOG";
+            #binding-cells = <0>;
+            bindings = <&none>, <&none>, <&ext_power EP_TOG>;
+        };
+
+        tap_dance_at_dollar_caret: tap_dance_at_dollar_caret {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_AT_DOLLAR_CARET";
+            #binding-cells = <0>;
+            bindings = <&kp AT>, <&kp DOLLAR>, <&kp CARET>;
+        };
+
+        tap_dance_sqt_dqt_grave: tap_dance_sqt_dqt_grave {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_SQT_DQT_GRAVE";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp DQT>, <&kp GRAVE>;
+        };
+
+        tap_dance_lpar_lbrc: tap_dance_lpar_lbrc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_LPAR_LBRC";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp LBRC>;
+        };
+
+        tap_dance_rpar_rbrc: tap_dance_rpar_rbrc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_RPAR_RBRC";
+            #binding-cells = <0>;
+            bindings = <&kp RPAR>, <&kp RBRC>;
+        };
+
+        tap_dance_flsh_blsh: tap_dance_flsh_blsh {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_FLSH_BLSH";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp BACKSLASH>;
+        };
+
+        tap_dance_excl_minus_prcnt: tap_dance_excl_minus_prcnt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_EXCL_MINUS_PRCNT";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL>, <&kp MINUS>, <&kp PRCNT>;
+        };
+
+        tap_dance_qmark_star: tap_dance_qmark_star {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_QMARK_STAR";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp STAR>;
+        };
+
+        tap_dance_tilde_plus: tap_dance_tilde_plus {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_TILDE_PLUS";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE>, <&kp PLUS>;
+        };
+
+        tap_dance_lt_lbrk: tap_dance_lt_lbrk {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_LT_LBRK";
+            #binding-cells = <0>;
+            bindings = <&kp LT>, <&kp LEFT_BRACKET>;
+        };
+
+        tap_dance_gt_rbrk: tap_dance_gt_rbrk {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_GT_RBRK";
+            #binding-cells = <0>;
+            bindings = <&kp GT>, <&kp RIGHT_BRACKET>;
+        };
+
+        tap_dance_pipe_amps_under: tap_dance_pipe_amps_under {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_PIPE_AMPS_UNDER";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE>, <&kp AMPS>, <&kp UNDER>;
+        };
+
+        tap_dance_star_caret: tap_dance_star_caret {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_STAR_CARET";
+            #binding-cells = <0>;
+            bindings = <&kp STAR>, <&kp CARET>;
+        };
+
+        tap_dance_7_grave: tap_dance_7_grave {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_7_GRAVE";
+            #binding-cells = <0>;
+            bindings = <&kp N7>, <&kp GRAVE>;
+        };
+
+        tap_dance_8_lpar: tap_dance_8_lpar {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_8_LPAR";
+            #binding-cells = <0>;
+            bindings = <&kp N8>, <&kp LPAR>;
+        };
+
+        tap_dance_9_rpar: tap_dance_9_rpar {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_9_RPAR";
+            #binding-cells = <0>;
+            bindings = <&kp N9>, <&kp RPAR>;
+        };
+
+        tap_dance_5_prcnt: tap_dance_5_prcnt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_5_PRCNT";
+            #binding-cells = <0>;
+            bindings = <&kp N5>, <&kp PRCNT>;
+        };
+
+        tap_dance_0_comma: tap_dance_0_comma {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0_COMMA";
+            #binding-cells = <0>;
+            bindings = <&kp N0>, <&kp COMMA>;
+        };
+
+        tap_dance_1_dot: tap_dance_1_dot {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_1_DOT";
+            #binding-cells = <0>;
+            bindings = <&kp N1>, <&kp DOT>;
+        };
+
+        tap_dance_minus_under: tap_dance_minus_under {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MINUS_UNDER";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp UNDER>;
+        };
+
+        tap_dance_semi_equal: tap_dance_semi_equal {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_SEMI_EQUAL";
+            #binding-cells = <0>;
+            bindings = <&kp SEMI>, <&kp EQUAL>;
+        };
+
+        tap_dance_colon_hash: tap_dance_colon_hash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_COLON_HASH";
+            #binding-cells = <0>;
+            bindings = <&kp COLON>, <&kp HASH>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
