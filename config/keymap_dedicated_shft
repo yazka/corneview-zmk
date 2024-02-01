@@ -1,0 +1,431 @@
+/*
+ * Copyright (c) 2020 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/bt.h>
+#include <dt-bindings/zmk/ext_power.h>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
+
+/ {
+    behaviors {
+        tap_dance_out_tog: tap_dance_out_tog {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_OUT_TOG";
+            #binding-cells = <0>;
+            bindings = <&none>, <&none>, <&out OUT_TOG>;
+        };
+
+        tap_dance_ep_tog: tap_dance_ep_tog {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_EP_TOG";
+            #binding-cells = <0>;
+            bindings = <&none>, <&none>, <&ext_power EP_TOG>;
+        };
+
+        tap_dance_at_dollar_caret: tap_dance_at_dollar_caret {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_AT_DOLLAR_CARET";
+            #binding-cells = <0>;
+            bindings = <&kp AT>, <&kp DOLLAR>, <&kp CARET>;
+        };
+
+        tap_dance_sqt_dqt_grave: tap_dance_sqt_dqt_grave {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_SQT_DQT_GRAVE";
+            #binding-cells = <0>;
+            bindings = <&kp SQT>, <&kp DQT>, <&kp GRAVE>;
+        };
+
+        tap_dance_lpar_lbrc: tap_dance_lpar_lbrc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_LPAR_LBRC";
+            #binding-cells = <0>;
+            bindings = <&kp LPAR>, <&kp LBRC>;
+        };
+
+        tap_dance_rpar_rbrc: tap_dance_rpar_rbrc {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_RPAR_RBRC";
+            #binding-cells = <0>;
+            bindings = <&kp RPAR>, <&kp RBRC>;
+        };
+
+        tap_dance_flsh_blsh: tap_dance_flsh_blsh {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_FLSH_BLSH";
+            #binding-cells = <0>;
+            bindings = <&kp FSLH>, <&kp BACKSLASH>;
+        };
+
+        tap_dance_excl_minus_prcnt: tap_dance_excl_minus_prcnt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_EXCL_MINUS_PRCNT";
+            #binding-cells = <0>;
+            bindings = <&kp EXCL>, <&kp MINUS>, <&kp PRCNT>;
+        };
+
+        tap_dance_qmark_star: tap_dance_qmark_star {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_QMARK_STAR";
+            #binding-cells = <0>;
+            bindings = <&kp QMARK>, <&kp STAR>;
+        };
+
+        tap_dance_tilde_plus: tap_dance_tilde_plus {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_TILDE_PLUS";
+            #binding-cells = <0>;
+            bindings = <&kp TILDE>, <&kp PLUS>;
+        };
+
+        tap_dance_lt_lbrk: tap_dance_lt_lbrk {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_LT_LBRK";
+            #binding-cells = <0>;
+            bindings = <&kp LT>, <&kp LEFT_BRACKET>;
+        };
+
+        tap_dance_gt_rbrk: tap_dance_gt_rbrk {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_GT_RBRK";
+            #binding-cells = <0>;
+            bindings = <&kp GT>, <&kp RIGHT_BRACKET>;
+        };
+
+        tap_dance_pipe_amps_under: tap_dance_pipe_amps_under {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_PIPE_AMPS_UNDER";
+            #binding-cells = <0>;
+            bindings = <&kp PIPE>, <&kp AMPS>, <&kp UNDER>;
+        };
+
+        tap_dance_star_caret: tap_dance_star_caret {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_STAR_CARET";
+            #binding-cells = <0>;
+            bindings = <&kp STAR>, <&kp CARET>;
+        };
+
+        tap_dance_7_grave: tap_dance_7_grave {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_7_GRAVE";
+            #binding-cells = <0>;
+            bindings = <&kp N7>, <&kp GRAVE>;
+        };
+
+        tap_dance_8_lpar: tap_dance_8_lpar {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_8_LPAR";
+            #binding-cells = <0>;
+            bindings = <&kp N8>, <&kp LPAR>;
+        };
+
+        tap_dance_9_rpar: tap_dance_9_rpar {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_9_RPAR";
+            #binding-cells = <0>;
+            bindings = <&kp N9>, <&kp RPAR>;
+        };
+
+        tap_dance_5_prcnt: tap_dance_5_prcnt {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_5_PRCNT";
+            #binding-cells = <0>;
+            bindings = <&kp N5>, <&kp PRCNT>;
+        };
+
+        tap_dance_0_comma: tap_dance_0_comma {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_0_COMMA";
+            #binding-cells = <0>;
+            bindings = <&kp N0>, <&kp COMMA>;
+        };
+
+        tap_dance_1_dot: tap_dance_1_dot {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_1_DOT";
+            #binding-cells = <0>;
+            bindings = <&kp N1>, <&kp DOT>;
+        };
+
+        tap_dance_minus_under: tap_dance_minus_under {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_MINUS_UNDER";
+            #binding-cells = <0>;
+            bindings = <&kp MINUS>, <&kp UNDER>;
+        };
+
+        tap_dance_semi_equal: tap_dance_semi_equal {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_SEMI_EQUAL";
+            #binding-cells = <0>;
+            bindings = <&kp SEMI>, <&kp EQUAL>;
+        };
+
+        tap_dance_colon_hash: tap_dance_colon_hash {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_COLON_HASH";
+            #binding-cells = <0>;
+            bindings = <&kp COLON>, <&kp HASH>;
+        };
+
+        rh_mt: rh_mt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RH_MT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <0 10 20 21 11 1 2 12 22 23 13 3 14 4 24 30 31 32>;
+            hold-trigger-on-release;
+        };
+
+        lh_mt: lh_mt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LH_MT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <33 25 15 5 6 16 26 34 35 27 17 7 8 18 28 29 19 9>;
+            hold-trigger-on-release;
+        };
+
+        rh_lt: rh_lt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RH_LT";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <0 10 20 21 11 1 2 12 22 23 13 3 14 4 24 30 31 32>;
+        };
+
+        lh_lt: lh_lt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LH_LT";
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <33 25 15 5 6 16 26 34 35 27 17 7 8 18 28 29 19 9>;
+            bindings = <&mo>, <&kp>;
+        };
+
+        bse_ht: bse_ht {
+            compatible = "zmk,behavior-hold-tap";
+            label = "BSE_HT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <100>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        to_gme1 {
+            bindings = <&to 7>;
+            key-positions = <30 35>;
+            layers = <0>;
+            timeout-ms = <200>;
+            require-prior-idle-ms = <200>;
+        };
+
+        to_bse {
+            bindings = <&to 0>;
+            key-positions = <31 34>;
+            timeout-ms = <100>;
+            layers = <7>;
+        };
+
+        wcaps {
+            bindings = <&caps_word>;
+            key-positions = <14 15>;
+            layers = <0>;
+        };
+
+        lreset {
+            bindings = <&sys_reset>;
+            key-positions = <32 30 4>;
+            layers = <0>;
+        };
+
+        rreset {
+            bindings = <&sys_reset>;
+            key-positions = <33 35 5>;
+            layers = <0>;
+        };
+
+        lbootldr {
+            bindings = <&bootloader>;
+            key-positions = <32 30 0>;
+            layers = <0>;
+        };
+
+        rbootldr {
+            bindings = <&bootloader>;
+            key-positions = <33 35 9>;
+            layers = <0>;
+        };
+
+        bt_disc_0 {
+            bindings = <&bt BT_DISC 0>;
+            key-positions = <30 25 24>;
+            layers = <1>;
+        };
+
+        bt_disc_1 {
+            bindings = <&bt BT_DISC 1>;
+            key-positions = <30 24 26>;
+            layers = <1>;
+        };
+
+        bt_disc_2 {
+            bindings = <&bt BT_DISC 2>;
+            key-positions = <30 24 27>;
+            layers = <1>;
+        };
+
+        bt_disc_3 {
+            bindings = <&bt BT_DISC 3>;
+            key-positions = <30 24 28>;
+            layers = <1>;
+        };
+
+        bt_clr {
+            bindings = <&bt BT_CLR>;
+            key-positions = <30 20 24>;
+            layers = <1>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        Base {
+            // -----------------------------------------------------------------------------------------
+            // |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
+            // |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |
+            // |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
+            //             | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+
+            label = "BSE";
+            bindings = <
+&kp Q       &kp W          &kp E              &kp R           &kp T           &kp Y            &kp U               &kp I               &kp O              &kp P
+&kp A       &lh_mt LGUI S  &lh_mt LEFT_ALT D  &lh_mt LCTRL F  &kp G           &kp H            &rh_mt RCTRL J      &rh_mt RIGHT_ALT K  &rh_mt RGUI L      &bse_ht FSLH DOT
+&kp LSHIFT  &kp Z          &kp X              &kp C           &kp V           &kp B            &kp N               &kp M               &bse_ht SQT COMMA  &kp RSHIFT
+                           &lh_lt 1 TAB       &lh_lt 2 SPACE  &lh_lt 3 RET    &rh_lt 4 ESCAPE  &rh_lt 5 BACKSPACE  &rh_lt 6 DEL
+            >;
+        };
+
+        Media {
+            // -----------------------------------------------------------------------------------------
+            // |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |
+            // | BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |
+            // |     |     |     |     |     |   |     |     |     |     |     |
+            //             | GUI |     | SPC |   | ENT |     | ALT |
+
+            label = "MED";
+            bindings = <
+&none       &none     &none     &none      &none    &kp F18       &kp F19            &kp F20          &kp F21       &kp F22
+&none       &kp LGUI  &kp LALT  &kp LCTRL  &none    &kp C_REWIND  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_FF      &tap_dance_ep_tog
+&kp LSHIFT  &none     &none     &none      &none    &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3  &tap_dance_out_tog
+                      &trans    &none      &none    &kp C_STOP    &kp C_PLAY_PAUSE   &kp C_MUTE
+            >;
+        };
+
+        Navigation {
+            bindings = <
+&none       &none     &none         &none      &none    &kp F13   &kp F14    &kp F15    &kp F16    &kp F17
+&none       &kp LCMD  &kp LEFT_ALT  &kp LCTRL  &none    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp CLCK
+&kp LSHIFT  &none     &none         &none      &none    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp INS
+                      &none         &trans     &none    &kp F23   &kp K_APP  &kp F24
+            >;
+
+            label = "NAV";
+        };
+
+        Mouse {
+            bindings = <
+&none       &none     &none         &none      &none     &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO
+&none       &kp LCMD  &kp LEFT_ALT  &kp LCTRL  &none     &none       &none        &none       &none      &none
+&kp LSHIFT  &none     &none         &none      &none     &none       &none        &none       &none      &none
+                      &none         &none      &trans    &mkp LCLK   &mkp MCLK    &mkp RCLK
+            >;
+
+            label = "MSE";
+        };
+
+        Symbols {
+            bindings = <
+&tap_dance_at_dollar_caret  &tap_dance_sqt_dqt_grave  &tap_dance_lpar_lbrc         &tap_dance_rpar_rbrc   &tap_dance_flsh_blsh          &none   &none      &none     &none     &none
+&tap_dance_semi_equal       &tap_dance_colon_hash     &tap_dance_excl_minus_prcnt  &tap_dance_qmark_star  &tap_dance_tilde_plus         &none   &kp RCTRL  &kp RALT  &kp RGUI  &none
+&kp COMMA                   &kp DOT                   &tap_dance_lt_lbrk           &tap_dance_gt_rbrk     &tap_dance_pipe_amps_under    &none   &none      &none     &none     &kp RSHIFT
+                                                      &kp TAB                      &kp SPACE              &kp RET                       &trans  &none      &none
+            >;
+
+            label = "SYM";
+        };
+
+        Numbers {
+            bindings = <
+&tap_dance_star_caret  &tap_dance_7_grave  &tap_dance_8_lpar   &tap_dance_9_rpar  &tap_dance_flsh_blsh      &none  &none      &none     &none     &none
+&kp EQUAL              &kp N4              &tap_dance_5_prcnt  &kp N6             &kp KP_PLUS               &none  &kp RCTRL  &kp RALT  &kp RGUI  &none
+&tap_dance_0_comma     &tap_dance_1_dot    &kp N2              &kp N3             &tap_dance_minus_under    &none  &none      &none     &none     &kp RSHIFT
+                                           &kp TAB             &kp SPACE          &kp RET                   &none  &trans     &none
+            >;
+
+            label = "NUM";
+        };
+
+        Function {
+            bindings = <
+&kp F12  &kp F7  &kp F8   &kp F9     &kp PSCRN          &none  &none      &none     &none     &none
+&kp F11  &kp F4  &kp F5   &kp F6     &kp SCROLLLOCK     &none  &kp RCTRL  &kp RALT  &kp RGUI  &none
+&kp F10  &kp F1  &kp F2   &kp F3     &kp PAUSE_BREAK    &none  &none      &none     &none     &kp RSHIFT
+                 &kp TAB  &kp SPACE  &kp RET            &none  &none      &trans
+            >;
+
+            label = "FUN";
+        };
+
+        Game {
+            bindings = <
+&kp ESC    &kp Q  &kp W      &kp E      &kp R    &none  &none      &none     &none     &none
+&kp TAB    &kp A  &kp S      &kp D      &kp F    &none  &kp RCTRL  &kp RALT  &kp RGUI  &none
+&kp LSHFT  &kp Z  &kp X      &kp C      &kp V    &none  &none      &none     &none     &kp RSHIFT
+                  &kp LCTRL  &kp SPACE  &mo 8    &none  &none      &none
+            >;
+
+            label = "GME1";
+        };
+
+        Game_alt {
+            bindings = <
+&kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &none  &none      &none     &none     &none
+&kp N6  &kp N7  &kp N8  &kp N9  &kp N0    &none  &kp RCTRL  &kp RALT  &kp RGUI  &none
+&kp T   &kp G   &kp B   &kp N   &kp M     &none  &none      &none     &none     &kp RSHIFT
+                &none   &none   &trans    &none  &none      &none
+            >;
+
+            label = "GME2";
+        };
+    };
+};
