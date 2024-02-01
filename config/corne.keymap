@@ -341,7 +341,7 @@
         Symbols {
             bindings = <
 &tap_dance_at_dollar_caret  &tap_dance_sqt_dqt_grave  &tap_dance_lpar_lbrc         &tap_dance_rpar_rbrc   &tap_dance_flsh_blsh          &none  &none      &none      &none     &none
-&tap_dance_semi_equal       &tap_dance_colon_hash     &tap_dance_excl_minus_prcnt  &tap_dance_qmark_star  &tap_dance_tilde_plus         &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&tap_dance_semi_equal       &tap_dance_colon_hash     &tap_dance_excl_minus_prcnt  &tap_dance_qmark_star  &tap_dance_tilde_plus         &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &kp COMMA                   &kp DOT                   &tap_dance_lt_lbrk           &tap_dance_gt_rbrk     &tap_dance_pipe_amps_under    &none  &none      &none      &none     &none
                                                       &kp TAB                      &kp SPACE              &kp RET                       &none  &none      &none
             >;
@@ -352,7 +352,7 @@
         Numbers {
             bindings = <
 &tap_dance_star_caret  &tap_dance_7_grave  &tap_dance_8_lpar   &tap_dance_9_rpar  &tap_dance_flsh_blsh      &none  &none      &none      &none     &none
-&kp EQUAL              &kp N4              &tap_dance_5_prcnt  &kp N6             &kp KP_PLUS               &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&kp EQUAL              &kp N4              &tap_dance_5_prcnt  &kp N6             &kp KP_PLUS               &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &tap_dance_0_comma     &tap_dance_1_dot    &kp N2              &kp N3             &tap_dance_minus_under    &none  &none      &none      &none     &none
                                            &kp TAB             &kp SPACE          &kp RET                   &none  &none      &none
             >;
@@ -363,7 +363,7 @@
         Function {
             bindings = <
 &kp F12  &kp F7  &kp F8   &kp F9     &kp PSCRN          &none  &none      &none      &none     &none
-&kp F11  &kp F4  &kp F5   &kp F6     &kp SCROLLLOCK     &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&kp F11  &kp F4  &kp F5   &kp F6     &kp SCROLLLOCK     &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &kp F10  &kp F1  &kp F2   &kp F3     &kp PAUSE_BREAK    &none  &none      &none      &none     &none
                  &kp TAB  &kp SPACE  &kp RET            &none  &none      &none
             >;
@@ -374,7 +374,7 @@
         Game {
             bindings = <
 &kp ESC    &kp Q  &kp W      &kp E      &kp R    &none  &none      &none      &none     &none
-&kp TAB    &kp A  &kp S      &kp D      &kp F    &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&kp TAB    &kp A  &kp S      &kp D      &kp F    &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &kp LSHFT  &kp Z  &kp X      &kp C      &kp V    &none  &none      &none      &none     &none
                   &kp LCTRL  &kp SPACE  &mo 8    &none  &none      &none
             >;
@@ -385,7 +385,7 @@
         Game_alt {
             bindings = <
 &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &none  &none      &none      &none     &none
-&kp N6  &kp N7  &kp N8  &kp N9  &kp N0    &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&kp N6  &kp N7  &kp N8  &kp N9  &kp N0    &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &kp T   &kp G   &kp B   &kp N   &kp M     &none  &none      &none      &none     &none
                 &none   &none   &none     &none  &none      &none
             >;
