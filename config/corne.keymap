@@ -200,6 +200,31 @@
             hold-trigger-key-positions = <33 25 15 5 6 16 26 34 35 27 17 7 8 18 28 29 19 9>;
             hold-trigger-on-release;
         };
+
+        rh_lt: rh_lt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RH_LT";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <0 10 20 21 11 1 2 12 22 23 13 3 14 4 24 30 31 32>;
+        };
+
+        lh_lt: lh_lt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LH_LT";
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <33 25 15 5 6 16 26 34 35 27 17 7 8 18 28 29 19 9>;
+            bindings = <&mo>, <&kp>;
+        };
     };
 
     combos {
@@ -293,10 +318,10 @@
 
             label = "BSE";
             bindings = <
-&kp Q          &kp W          &kp E           &kp R           &kp T        &kp Y         &kp U            &kp I           &kp O          &kp P
-&lh_mt LCMD A  &lh_mt LALT S  &lh_mt LCTRL D  &lh_mt LSHFT F  &kp G        &kp H         &rh_mt RSHFT J   &rh_mt RCTRL K  &rh_mt RALT L  &rh_mt RGUI SQT
-&kp Z          &kp X          &kp C           &kp V           &kp B        &kp N         &kp M            &kp COMMA       &kp DOT        &kp FSLH
-                              &lt 1 TAB       &lt 2 SPACE     &lt 3 RET    &lt 4 ESCAPE  &lt 5 BACKSPACE  &lt 6 DEL
+&kp Q          &kp W          &kp E           &kp R           &kp T           &kp Y            &kp U               &kp I           &kp O          &kp P
+&lh_mt LCMD A  &lh_mt LALT S  &lh_mt LCTRL D  &lh_mt LSHFT F  &kp G           &kp H            &rh_mt RSHFT J      &rh_mt RCTRL K  &rh_mt RALT L  &rh_mt RGUI SQT
+&kp Z          &kp X          &kp C           &kp V           &kp B           &kp N            &kp M               &kp COMMA       &kp DOT        &kp FSLH
+                              &lh_lt 1 TAB    &lh_lt 2 SPACE  &lh_lt 3 RET    &rh_lt 4 ESCAPE  &rh_lt 5 BACKSPACE  &rh_lt 6 DEL
             >;
         };
 
@@ -387,7 +412,7 @@
 &kp N1  &kp N2  &kp N3  &kp N4  &kp N5    &none  &none      &none      &none     &none
 &kp N6  &kp N7  &kp N8  &kp N9  &kp N0    &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &kp T   &kp G   &kp B   &kp N   &kp M     &none  &none      &none      &none     &none
-                &none   &none   &none     &none  &none      &none
+                &none   &none   &trans    &none  &none      &none
             >;
 
             label = "GME2";
