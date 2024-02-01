@@ -309,10 +309,10 @@
 
             label = "MED";
             bindings = <
-&none     &none     &none      &none      &none    &kp F18       &kp F19       &kp F20       &kp F21       &kp F22
-&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none    &none         &none         &none         &none         &tap_dance_ep_tog
-&none     &none     &none      &none      &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &tap_dance_out_tog
-                    &none      &none      &none    &none         &none         &none
+&none     &none     &none      &none      &none    &kp F18       &kp F19            &kp F20          &kp F21       &kp F22
+&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none    &kp C_REWIND  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &kp C_FF      &tap_dance_ep_tog
+&none     &none     &none      &none      &none    &bt BT_SEL 0  &bt BT_SEL 1       &bt BT_SEL 2     &bt BT_SEL 3  &tap_dance_out_tog
+                    &trans     &none      &none    &kp C_STOP    &kp C_PLAY_PAUSE   &kp C_MUTE
             >;
         };
 
@@ -321,7 +321,7 @@
 &none     &none     &none      &none      &none    &kp F13   &kp F14    &kp F15    &kp F16    &kp F17
 &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none    &kp LEFT  &kp DOWN   &kp UP     &kp RIGHT  &kp CLCK
 &none     &none     &none      &none      &none    &kp HOME  &kp PG_DN  &kp PG_UP  &kp END    &kp INS
-                    &none      &none      &none    &kp F23   &kp K_APP  &kp F24
+                    &none      &trans     &none    &kp F23   &kp K_APP  &kp F24
             >;
 
             label = "NAV";
@@ -329,10 +329,10 @@
 
         Mouse {
             bindings = <
-&none     &none     &none      &none      &none    &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO
-&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none    &none       &none        &none       &none      &none
-&none     &none     &none      &none      &none    &none       &none        &none       &none      &none
-                    &none      &none      &none    &mkp LCLK   &mkp MCLK    &mkp RCLK
+&none     &none     &none      &none      &none     &kp K_REDO  &kp K_PASTE  &kp K_COPY  &kp K_CUT  &kp K_UNDO
+&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none     &none       &none        &none       &none      &none
+&none     &none     &none      &none      &none     &none       &none        &none       &none      &none
+                    &none      &none      &trans    &mkp LCLK   &mkp MCLK    &mkp RCLK
             >;
 
             label = "MSE";
@@ -340,10 +340,10 @@
 
         Symbols {
             bindings = <
-&tap_dance_at_dollar_caret  &tap_dance_sqt_dqt_grave  &tap_dance_lpar_lbrc         &tap_dance_rpar_rbrc   &tap_dance_flsh_blsh          &none  &none      &none      &none     &none
-&tap_dance_semi_equal       &tap_dance_colon_hash     &tap_dance_excl_minus_prcnt  &tap_dance_qmark_star  &tap_dance_tilde_plus         &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
-&kp COMMA                   &kp DOT                   &tap_dance_lt_lbrk           &tap_dance_gt_rbrk     &tap_dance_pipe_amps_under    &none  &none      &none      &none     &none
-                                                      &kp TAB                      &kp SPACE              &kp RET                       &none  &none      &none
+&tap_dance_at_dollar_caret  &tap_dance_sqt_dqt_grave  &tap_dance_lpar_lbrc         &tap_dance_rpar_rbrc   &tap_dance_flsh_blsh          &none   &none      &none      &none     &none
+&tap_dance_semi_equal       &tap_dance_colon_hash     &tap_dance_excl_minus_prcnt  &tap_dance_qmark_star  &tap_dance_tilde_plus         &none   &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
+&kp COMMA                   &kp DOT                   &tap_dance_lt_lbrk           &tap_dance_gt_rbrk     &tap_dance_pipe_amps_under    &none   &none      &none      &none     &none
+                                                      &kp TAB                      &kp SPACE              &kp RET                       &trans  &none      &none
             >;
 
             label = "SYM";
@@ -354,7 +354,7 @@
 &tap_dance_star_caret  &tap_dance_7_grave  &tap_dance_8_lpar   &tap_dance_9_rpar  &tap_dance_flsh_blsh      &none  &none      &none      &none     &none
 &kp EQUAL              &kp N4              &tap_dance_5_prcnt  &kp N6             &kp KP_PLUS               &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &tap_dance_0_comma     &tap_dance_1_dot    &kp N2              &kp N3             &tap_dance_minus_under    &none  &none      &none      &none     &none
-                                           &kp TAB             &kp SPACE          &kp RET                   &none  &none      &none
+                                           &kp TAB             &kp SPACE          &kp RET                   &none  &trans     &none
             >;
 
             label = "NUM";
@@ -365,7 +365,7 @@
 &kp F12  &kp F7  &kp F8   &kp F9     &kp PSCRN          &none  &none      &none      &none     &none
 &kp F11  &kp F4  &kp F5   &kp F6     &kp SCROLLLOCK     &none  &kp RSHFT  &kp RCTRL  &kp RALT  &kp RGUI
 &kp F10  &kp F1  &kp F2   &kp F3     &kp PAUSE_BREAK    &none  &none      &none      &none     &none
-                 &kp TAB  &kp SPACE  &kp RET            &none  &none      &none
+                 &kp TAB  &kp SPACE  &kp RET            &none  &none      &trans
             >;
 
             label = "FUN";
