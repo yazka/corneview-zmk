@@ -203,8 +203,8 @@
             label = "MED";
             bindings = <
 &none     &none     &none      &none      &none    &kp F18       &kp F19       &kp F20       &kp F21       &kp F22
-&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none    &none         &none         &none         &none         &ext_power EP_TOG
-&none     &none     &none      &none      &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &out OUT_TOG
+&kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &none    &none         &none         &none         &none         &tap_dance_ep_tog
+&none     &none     &none      &none      &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &tap_dance_out_tog
                     &none      &none      &none    &none         &none         &none
             >;
         };
@@ -233,10 +233,10 @@
 
         Symbols {
             bindings = <
-&none      &none     &none    &none      &none      &none  &none      &none      &none     &none
-&kp COLON  &kp SEMI  &none    &none      &none      &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
-&kp COMMA  &kp DOT   &none    &none      &none      &none  &none      &none      &none     &none
-                     &kp TAB  &kp SPACE  &kp RET    &none  &none      &none
+&tap_dance_at_dollar_caret  &tap_dance_sqt_dqt_grave  &tap_dance_lpar_lbrc         &tap_dance_rpar_rbrc   &tap_dance_flsh_blsh          &none  &none      &none      &none     &none
+&tap_dance_semi_equal       &tap_dance_colon_hash     &tap_dance_excl_minus_prcnt  &tap_dance_qmark_star  &tap_dance_tilde_plus         &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&kp COMMA                   &kp DOT                   &tap_dance_lt_lbrk           &tap_dance_gt_rbrk     &tap_dance_pipe_amps_under    &none  &none      &none      &none     &none
+                                                      &kp TAB                      &kp SPACE              &kp RET                       &none  &none      &none
             >;
 
             label = "SYM";
@@ -244,10 +244,10 @@
 
         Numbers {
             bindings = <
-&none      &none   &none    &none      &none          &none  &none      &none      &none     &none
-&kp EQUAL  &kp N4  &none    &kp N6     &kp KP_PLUS    &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
-&none      &none   &kp N2   &kp N3     &none          &none  &none      &none      &none     &none
-                   &kp TAB  &kp SPACE  &kp RET        &none  &none      &none
+&tap_dance_star_caret  &tap_dance_7_grave  &tap_dance_8_lpar   &tap_dance_9_rpar  &tap_dance_flsh_blsh      &none  &none      &none      &none     &none
+&kp EQUAL              &kp N4              &tap_dance_5_prcnt  &kp N6             &kp KP_PLUS               &none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI
+&tap_dance_0_comma     &tap_dance_1_dot    &kp N2              &kp N3             &tap_dance_minus_under    &none  &none      &none      &none     &none
+                                           &kp TAB             &kp SPACE          &kp RET                   &none  &none      &none
             >;
 
             label = "NUM";
