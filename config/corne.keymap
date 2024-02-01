@@ -172,6 +172,113 @@
             #binding-cells = <0>;
             bindings = <&kp COLON>, <&kp HASH>;
         };
+
+        rh_mt: rh_mt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "RH_MT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <0 10 20 21 11 1 2 12 22 23 13 3 14 4 24 30 31 32>;
+            hold-trigger-on-release;
+        };
+
+        lh_mt: lh_mt {
+            compatible = "zmk,behavior-hold-tap";
+            label = "LH_MT";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <350>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <100>;
+            retro-tap;
+            hold-trigger-key-positions = <33 25 15 5 6 16 26 34 35 27 17 7 8 18 28 29 19 9>;
+            hold-trigger-on-release;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        to_gme1 {
+            bindings = <&to 7>;
+            key-positions = <30 35>;
+            layers = <0>;
+            timeout-ms = <200>;
+            require-prior-idle-ms = <200>;
+        };
+
+        to_bse {
+            bindings = <&to 0>;
+            key-positions = <31 34>;
+            timeout-ms = <100>;
+            layers = <7>;
+        };
+
+        wcaps {
+            bindings = <&caps_word>;
+            key-positions = <14 15>;
+            layers = <0>;
+        };
+
+        lreset {
+            bindings = <&sys_reset>;
+            key-positions = <32 30 4>;
+            layers = <0>;
+        };
+
+        rreset {
+            bindings = <&sys_reset>;
+            key-positions = <33 35 5>;
+            layers = <0>;
+        };
+
+        lbootldr {
+            bindings = <&bootloader>;
+            key-positions = <32 30 0>;
+            layers = <0>;
+        };
+
+        rbootldr {
+            bindings = <&bootloader>;
+            key-positions = <33 35 9>;
+            layers = <0>;
+        };
+
+        bt_disc_0 {
+            bindings = <&bt BT_DISC 0>;
+            key-positions = <30 25 24>;
+            layers = <1>;
+        };
+
+        bt_disc_1 {
+            bindings = <&bt BT_DISC 1>;
+            key-positions = <30 24 26>;
+            layers = <1>;
+        };
+
+        bt_disc_2 {
+            bindings = <&bt BT_DISC 2>;
+            key-positions = <30 24 27>;
+            layers = <1>;
+        };
+
+        bt_disc_3 {
+            bindings = <&bt BT_DISC 3>;
+            key-positions = <30 24 28>;
+            layers = <1>;
+        };
+
+        bt_clr {
+            bindings = <&bt BT_CLR>;
+            key-positions = <30 20 24>;
+            layers = <1>;
+        };
     };
 
     keymap {
@@ -186,10 +293,10 @@
 
             label = "BSE";
             bindings = <
-&kp Q  &kp W  &kp E      &kp R        &kp T        &kp Y         &kp U            &kp I      &kp O    &kp P
-&kp A  &kp S  &kp D      &kp F        &kp G        &kp H         &kp J            &kp K      &kp L    &kp SQT
-&kp Z  &kp X  &kp C      &kp V        &kp B        &kp N         &kp M            &kp COMMA  &kp DOT  &kp FSLH
-              &lt 1 TAB  &lt 2 SPACE  &lt 3 RET    &lt 4 ESCAPE  &lt 5 BACKSPACE  &lt 6 DEL
+&kp Q          &kp W          &kp E           &kp R           &kp T        &kp Y         &kp U            &kp I           &kp O          &kp P
+&lh_mt LCMD A  &lh_mt LALT S  &lh_mt LCTRL D  &lh_mt LSHFT F  &kp G        &kp H         &rh_mt RSHFT J   &rh_mt RCTRL K  &rh_mt RALT L  &rh_mt RGUI SQT
+&kp Z          &kp X          &kp C           &kp V           &kp B        &kp N         &kp M            &kp COMMA       &kp DOT        &kp FSLH
+                              &lt 1 TAB       &lt 2 SPACE     &lt 3 RET    &lt 4 ESCAPE  &lt 5 BACKSPACE  &lt 6 DEL
             >;
         };
 
