@@ -1,0 +1,157 @@
+Combos:
+rows U,M,B,T for upper,mid,bottom,thumb
+keys 1-5 from counting from central to lateral
+l/r for left/right board
+
+BSE layer:
+to GME1								T3+T3
+wcaps									M1+M1
+
+GME1 layer:
+to BSE								T2+T2
+
+MED:
+reset									T1+T3+U1
+bootloader						T1+T3+U5
+bt-disconnect					lT3+lB1+rB1-rB4 (for bt slot 0-3)
+bt-remove connection	lT3+lB1+lB5 
+
+[bootloader and reset only affect the board they are pressed on]
+
+Left													Right
+
+BSE:
+
+	Q		W		E		R		T							Y		U		I		O		P
+
+	A		S		D		F		G							H		J		K		L		.
+	    gui alt	ctl 								  ctl alt gui	/
+
+	sft	Z		X		C		V							B		N		M		,		sft
+																						'
+
+					Tab	Spc Ret						Esc	Bsc	Del
+  				MED NAV MSE						SYM	NUM	FUN
+					\___________	 GM1		__________/
+
+MED:
+
+		NU	NU	NU	NU	NU						F18	F19	F20	F21	F22
+
+
+		NU gui	alt	ctl	NU						Med	Vol	Vol	Med EP
+																	Prv Dwn Up	Nxt Tog
+
+		sft	NU	NU	NU	NU						BT0	BT1	BT2	BT3	Out
+																									tog
+
+						*	NU	NU							Med	Med Vol
+																	Stp	P-P	Mut
+
+NAV:
+
+		NU	NU	NU	NU	NU						F13	F14	F15	F16	F17
+
+
+		NU	gui	alt	ctl	NU						lft	dwn	up	rgt	Clck
+
+
+		sft	NU	NU	NU	NU						Hme	Pdn	Pup	End	Ins
+		
+
+						NU	*		NU						F23	App	F24
+
+MSE:
+
+		NU	NU	NU	NU	NU						Red	Pst	Cpy	Cut	Udo
+
+
+		NU	gui	alt	ctl	NU						Mse Mse Mse Mse NU
+																	lft dwn	up	rgt	NU
+												
+		sft	NU	NU	NU	NU						Mdg Mdg Mdg Mdg NU
+																	lft dwn	up	rgt	NU
+
+
+						NU	NU	*							Rgt	Lft	Mid
+
+
+
+SYM:
+
+	  @   '   (   )   /             NU  NU  NU  NU  NU
+	  $   "   {   }   \
+		^		`
+
+	  ;   :   !   ?   ~             NU	ctl alt gui	NU
+  	=  	#   -   *   +
+						%
+																				
+	  ,   .   <   >   |             NU  NU  NU  NU  sft
+   		      [   ]   &
+										_
+
+          	Tab Spc Ret           *   NU  NU
+
+
+NUM:
+
+	  *   7   8   9   /           NU  NU  NU  NU  NU
+ 		^   `   (   )   \
+
+	  =   4   5   6   +           NU ctl alt gui	NU
+  	        %
+
+	  0   1   2   3   -           NU  NU  NU  NU  sft
+	  ,   .           _
+
+          Tab	Spc	Ret         	NU  *   NU
+
+
+FUN:
+
+		F12	F7	F8	F9	Psc						NU	NU	NU	NU	NU
+										SRq
+
+		F11	F4	F5	F6	Scl						NU ctl alt gui	NU
+										
+
+		F10	F1	F2	F3	Pse						NU	NU	NU	NU	sft
+
+
+						Tab	Spc	Ret						NU	NU	*
+
+
+GME1:
+
+		Esc	Q		W		E		R						NU	NU	NU	NU	NU
+
+
+		Tab	A		S		D		F						NU 	ctl alt gui	NU
+
+
+		Sft	Z		X		C		V						NU	NU	NU	NU	sft
+
+
+					Ctl	Spc	GM2						NU	NU	NU	
+
+
+GME2:
+
+		1		2		3		4		5						NU	NU	NU	NU	NU
+
+
+		6		7	  8		9		0						NU	ctl alt gui	NU
+
+
+		t		g		b		n		m						NU	NU	NU	NU	sft
+
+
+						NU	NU	*						NU	NU	NU	
+
+
+___________________
+
+missing keys (need to implement in software):
+
+€		shift-@
