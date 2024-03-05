@@ -198,6 +198,16 @@ ZMK_LAYER(Mouse,
                                       &none         &none         &trans            &mkp LCLK     &mkp MCLK     &mkp RCLK
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
+*/
+
+ZMK_LAYER(Dummy,
+          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none
+          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none
+          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none
+                                      &none         &none         &none                  &none         &none         &none
+)
+
+
 
 ZMK_LAYER(Sym,
      // ╭─────────────────────┬─────────────────────┬─────────────────────┬─────────────────────┬─────────────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
@@ -210,7 +220,7 @@ ZMK_LAYER(Sym,
                                                       &kp TAB               &kp SPACE             &kp RET                    &trans        &none         &none
      //                                             ╰─────────────────────┴─────────────────────┴─────────────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
-
+/*
 ZMK_LAYER(Num,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
          &td_star_caret &td_7_grave  &td_8_lpar    &td_9_rpar    &td_flsh_blsh      &none         &none         &none         &none         &none
