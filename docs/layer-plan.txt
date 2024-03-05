@@ -1,22 +1,30 @@
+                                36 KEY MATRIX / LAYOUT MAPPING
+
+  ╭────────────────────┬────────────────────╮ ╭─────────────────────┬─────────────────────╮
+  │  0   1   2   3   4 │  5   6   7   8   9 │ │ LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 │
+  │ 10  11  12  13  14 │ 15  16  17  18  19 │ │ LM4 LM3 LM2 LM1 LM0 │ RM0 RM1 RM2 RM3 RM4 │
+  │ 20  21  22  23  24 │ 25  26  27  28  29 │ │ LB4 LB3 LB2 LB1 LB0 │ RB0 RB1 RB2 RB3 RB4 │
+  ╰───────╮ 30  31  32 │ 33  34  35 ╭───────╯ ╰───────╮ LH2 LH1 LH0 │ RH0 RH1 RH2 ╭───────╯
+          ╰────────────┴────────────╯                 ╰─────────────┴─────────────╯             
+
 Combos:
-rows U,M,B,T for upper,mid,bottom,thumb
-keys 1-5 from counting from central to lateral
-l/r for left/right board
 
-BSE layer:
-to GME1               T3+T3
-wcaps                 M1+M1
-
-GME1 layer:
-to BSE                T2+T2
-
-MED:
-reset                 T1+T3+U1
-bootloader            T1+T3+U5
-bt-disconnect         lT3+lB1+rB1-rB4 (for bt slot 0-3)
-bt-remove connection  lT3+lB1+lB5
+reset                H0+H2+T0
+bootloader           H0+H2+T4
 
 [bootloader and reset only affect the board they are pressed on]
+
+On Base layer:
+  to Game             LT4+RT4 //Q+P
+  wcaps               LM0+RM0 //G+H
+
+GME1 layer:
+  to Base             LB4+RB4                  
+
+MED:
+  bt-disconnect        LH2+LB0+RB[0-3] (for bt slot 0-3)
+  bt-remove connection LH2+LB0+LB4
+
 
 Left													Right
 
@@ -71,7 +79,7 @@ MSE:
 																	lft dwn	up	rgt	NU
 
 
-						NU	NU	*							Rgt	Lft	Mid
+						NU	NU	*							Lck	Mck	Rck
 
 
 
@@ -153,3 +161,6 @@ ___________________
 missing keys (need to implement in software):
 
 €		shift-@
+Ä
+Ö
+
