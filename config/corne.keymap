@@ -34,6 +34,8 @@
 #include "../zmk-nodefree-config/helper.h"
 #include "../zmk-nodefree-config/keypos_def/keypos_36keys.h"
 
+/* DEBUG
+
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
 #define THUMBS LH2 LH1 LH0 RH0 RH1 RH2                                      // thumb keys
@@ -43,7 +45,6 @@ ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
 ZMK_UNICODE_PAIR(fi_a,   N0, N0,  E, N4,   N0, N0,  C, N4) // äÄ
 ZMK_UNICODE_PAIR(sv_o,   N0, N0,  E, N5,   N0, N0,  C, N5) // åÅ
 ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
-
 
 //Tap dances
 
@@ -73,6 +74,9 @@ ZMK_BEHAVIOR(td_1_dot,            tap_dance, bindings = <&kp N1>, <&kp DOT>;)
 ZMK_BEHAVIOR(td_minus_under,      tap_dance, bindings = <&kp MINUS>, <&kp UNDER>;)
 ZMK_BEHAVIOR(td_semi_equal,       tap_dance, bindings = <&kp SEMI>, <&kp EQUAL>;)
 ZMK_BEHAVIOR(td_colon_hash,       tap_dance, bindings = <&kp COLON>, <&kp HASH>;)
+
+
+*/
 
 //Homerow modtaps, positional for contralateral keys
 
@@ -120,8 +124,15 @@ ZMK_BEHAVIOR(lh_lt, hold_tap,
 
 // Game layer switch swapped to Q+P
 // Back to base switch swapped to Z+/
+
+
+
+/* DEBUG ***
 ZMK_COMBO(to_gme,  &to 7, LT4 RT4, 0, 100)
 ZMK_COMBO(to_base, &to 0, LB4 RB4, 7, 100)
+*/
+
+
 ZMK_COMBO(capsword, &caps_word, LM0 RM0, 0)
 
 ZMK_COMBO(left_reset, &sys_reset, LH0 LH2 LT0, ALL)  //Reset and bootloader are enabled on all layers since 2 thumbs are down
@@ -153,10 +164,21 @@ ZMK_LAYER(Base,
      // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
           &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH
      // ╰───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-                                          &lh_lt 1 TAB   &lh_lt 2 SPACE   &lh_lt 3 RET       &rh_lt 4 ESCAPE &rh_lt 5 BACKSPACE  &rh_lt 6 DEL
+                                          &lh_lt 1 TAB   &lh_lt 1 SPACE   &lh_lt 1 RET       &rh_lt 1 ESCAPE &rh_lt 1 BACKSPACE  &rh_lt 1 DEL
+//                                          &lh_lt 1 TAB   &lh_lt 2 SPACE   &lh_lt 3 RET       &rh_lt 4 ESCAPE &rh_lt 5 BACKSPACE  &rh_lt 6 DEL
      //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
 )
 
+ZMK_LAYER(Dummy,
+          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none        
+          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none        
+          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none
+                                      &none         &none         &none                  &none         &none         &none        
+)
+/* DISABLED FOR DEBUG
+ 
+ 
+ 
 ZMK_LAYER(Media,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭───────────────┬─────────────────┬─────────────────┬───────────────┬───────────────╮
           &none         &none         &none         &none         &none             &kp F18         &kp F19           &kp F20           &kp F21         &kp F22
@@ -252,3 +274,4 @@ ZMK_LAYER(Galt,
                                        &none         &none        &trans            &none         &none         &none
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
 )
+*/
