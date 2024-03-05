@@ -36,8 +36,8 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
 
 //Tap dances
 
-ZMK_BEHAVIOR(td_out_tog, tap_dance, bindings = <&none>, <&none>, <&out OUT_TOG>;)     //triple smash to toggle usb output
-ZMK_BEHAVIOR(td_ep_tog, tap_dance, bindings = <&none>, <&none>, <&ext_power EP_TOG>;) //triple smash to toggle power out
+//ZMK_BEHAVIOR(td_out_tog, tap_dance, bindings = <&none>, <&none>, <&out OUT_TOG>;)     //triple smash to toggle usb output
+//ZMK_BEHAVIOR(td_ep_tog, tap_dance, bindings = <&none>, <&none>, <&ext_power EP_TOG>;) //triple smash to toggle power out
 
 //Tap dances for Sym and Num-layers
 
@@ -166,9 +166,9 @@ ZMK_LAYER(Media,
      // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭───────────────┬─────────────────┬─────────────────┬───────────────┬───────────────╮
           &none         &none         &none         &none         &none             &kp F18         &kp F19           &kp F20           &kp F21         &kp F22
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼─────────────────┼─────────────────┼───────────────┼───────────────┤
-          &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &none             &kp C_REWIND   &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp C_FF        &td_ep_tog
+          &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &none             &kp C_REWIND   &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp C_FF        &none   //&td_ep_tog
      // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼─────────────────┼─────────────────┼───────────────┼───────────────┤
-          &none         &none         &none         &none         &none             &bt BT_SEL 0    &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3    &td_out_tog
+          &none         &none         &none         &none         &none             &bt BT_SEL 0    &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3    &none   //&td_out_tog
      // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼─────────────────┼─────────────────┼───────────────┼───────────────┤
                                       &trans        &none         &none             &kp C_STOP      &kp C_PLAY_PAUSE  &kp C_MUTE
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰───────────────┴─────────────────┴─────────────────╯
