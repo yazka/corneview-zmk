@@ -68,51 +68,39 @@ ZMK_BEHAVIOR(td_minus_under,      tap_dance, bindings = <&kp MINUS>, <&kp UNDER>
 ZMK_BEHAVIOR(td_semi_equal,       tap_dance, bindings = <&kp SEMI>, <&kp EQUAL>;              tapping-term-ms = <300>;)
 ZMK_BEHAVIOR(td_colon_hash,       tap_dance, bindings = <&kp COLON>, <&kp HASH>;              tapping-term-ms = <300>;)
 
-//Homerow modtaps, positional for contralateral keys
+//Homerow mods and layer taps. positional for contralateral keys. retro-tap is disabled for now. hold-trigger-on-release enabled for HRMs
+//thumbs do not trigger mod for layer taps.
 
-ZMK_BEHAVIOR(rh_mt, hold_tap,
-    bindings = <&kp>, <&kp>;
-    flavor = "hold-preferred";
-    tapping-term-ms = <200>;
-    require-prior-idle-ms = <100>;
-    retro-tap;
-    quick-tap-ms = <150>;
-    hold-trigger-key-positions = <KEYS_L KEYS_T>;
-    hold-trigger-on-release;
-)
+#define QUICK_TAP_MS 175
+#define PRIOR_IDLE_MS 150
+#define TAPPING_TERM_MS 300
 
-ZMK_BEHAVIOR(lh_mt, hold_tap,
-    bindings = <&kp>, <&kp>;
-    flavor = "hold-preferred";
-    tapping-term-ms = <200>;
-    require-prior-idle-ms = <100>;
-    retro-tap;
-    quick-tap-ms = <150>;
-    hold-trigger-key-positions = <KEYS_R KEYS_T>;
-    hold-trigger-on-release;
-)
+#define MAKE_HRM(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "hold-preferred"; \
+        tapping-term-ms = <TAPPING_TERM_MS>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        require-prior-idle-ms = <PRIOR_IDLE_MS>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+        hold-trigger-on-release; \
+    )
 
-//Layer taps for thumbs, also positional
+#define MAKE_LT(NAME, HOLD, TAP, TRIGGER_POS) \
+    ZMK_BEHAVIOR(NAME, hold_tap, \
+        flavor = "hold-preferred"; \
+        tapping-term-ms = <TAPPING_TERM_MS>; \
+        quick-tap-ms = <QUICK_TAP_MS>; \
+        require-prior-idle-ms = <PRIOR_IDLE_MS>; \
+        bindings = <HOLD>, <TAP>; \
+        hold-trigger-key-positions = <TRIGGER_POS>; \
+    )
 
-ZMK_BEHAVIOR(rh_lt, hold_tap,
-    bindings = <&mo>, <&kp>;
-    flavor = "hold-preferred";
-    tapping-term-ms = <350>;
-    quick-tap-ms = <150>;
-    require-prior-idle-ms = <100>;
-    retro-tap;
-    hold-trigger-key-positions = <KEYS_L>;
-)
+MAKE_HRM(lh_mt, &kp, &kp, KEYS_R KEYS_T)  // left-hand HRMs
+MAKE_LT(lh_lt, &mo, &kp, KEYS_R)          // left-hand LTs
+MAKE_HRM(rm_mt, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
+MAKE_LT(rh_lt, &mo, &kp, KEYS_L)          // right-hand LTs
 
-ZMK_BEHAVIOR(lh_lt, hold_tap,
-    bindings = <&mo>, <&kp>;
-    flavor = "hold-preferred";
-    tapping-term-ms = <350>;
-    quick-tap-ms = <150>;
-    require-prior-idle-ms = <100>;
-    retro-tap;
-    hold-trigger-key-positions = <KEYS_R>;
-)
 
 // ZMK_COMBO(name, binding, space delim keypos, layers[, timeout defaults to 30ms])
 
