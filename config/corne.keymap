@@ -98,7 +98,7 @@ ZMK_BEHAVIOR(td_colon_hash,       tap_dance, bindings = <&kp COLON>, <&kp HASH>;
 
 MAKE_HRM(lh_mt, &kp, &kp, KEYS_R KEYS_T)  // left-hand HRMs
 MAKE_LT(lh_lt, &mo, &kp, KEYS_R)          // left-hand LTs
-MAKE_HRM(rm_mt, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
+MAKE_HRM(rh_mt, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
 MAKE_LT(rh_lt, &mo, &kp, KEYS_L)          // right-hand LTs
 
 
