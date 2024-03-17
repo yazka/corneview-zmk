@@ -101,47 +101,51 @@ ZMK_UNICODE_PAIR(sv_o,   N0, N0,  E, N5,   N0, N0,  C, N5) // åÅ
 ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
 */
 
-#define HRM_FLAVOR balanced
+#define ZMK_HT compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>
+#define ZMK_TD compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>
+
+
+#define HRM_FLAVOR "balanced"
 #define HRM_QUICK_TAP_MS QUICK_TAP_MS
 #define HRM_TAPPING_TERM_MS TAPPING_TERM_MS
 #define HRM_PRIOR_IDLE_MS PRIOR_IDLE_MS
 
-#define LT_FLAVOR balanced
+#define LT_FLAVOR "balanced"
 #define LT_QUICK_TAP_MS QUICK_TAP_MS
 #define LT_TAPPING_TERM_MS TAPPING_TERM_MS
 #define LT_PRIOR_IDLE_MS PRIOR_IDLE_MS
 
-#define BUILD_HRM(NAME, HOLD, TAP, TRIGGER_POS) NAME: NAME { compatible = "zmk, behavior-hold-tap"; #binding-cells = <2>; flavor = "HRM_FLAVOR"; tapping-term-ms = <HRM_TAPPING_TERM_MS>; quick-tap-ms = <HRM_QUICK_TAP_MS>; require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>; bindings = <HOLD>, <TAP>; hold-trigger-key-positions = <TRIGGER_POS>; hold-trigger-on-release; };
-#define BUILD_LT(NAME, HOLD, TAP, TRIGGER_POS) NAME: NAME { compatible = "zmk, behavior-hold-tap"; #binding-cells = <2>; flavor = "LT_FLAVOR"; tapping-term-ms = <LT_TAPPING_TERM_MS>; quick-tap-ms = <LT_QUICK_TAP_MS>; require-prior-idle-ms = <LT_PRIOR_IDLE_MS>; bindings = <HOLD>, <TAP>; hold-trigger-key-positions = <TRIGGER_POS>; };
+#define BUILD_HRM(NAME, HOLD, TAP, TRIGGER_POS) NAME: NAME { ZMK_HT; flavor = HRM_FLAVOR; tapping-term-ms = <HRM_TAPPING_TERM_MS>; quick-tap-ms = <HRM_QUICK_TAP_MS>; require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>; bindings = <HOLD>, <TAP>; hold-trigger-key-positions = <TRIGGER_POS>; hold-trigger-on-release; };
+#define BUILD_LT(NAME, HOLD, TAP, TRIGGER_POS) NAME: NAME { ZMK_HT; flavor = LT_FLAVOR; tapping-term-ms = <LT_TAPPING_TERM_MS>; quick-tap-ms = <LT_QUICK_TAP_MS>; require-prior-idle-ms = <LT_PRIOR_IDLE_MS>; bindings = <HOLD>, <TAP>; hold-trigger-key-positions = <TRIGGER_POS>; };
 
 #define TD_TAPPING_TERM_MS 100
-#define BUILD_2KEY_TD(NAME, KEY1, KEY2) NAME: NAME { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <&kp KEY1>, <&kp KEY2>; };
-#define BUILD_3KEY_TD(NAME, KEY1, KEY2, KEY3) NAME: NAME { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <&kp KEY1>, <&kp KEY2>, <kp KEY3>; };
-#define BUILD_2TRG_TD(NAME, KEY1, KEY2) NAME: NAME { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <KEY1>, <KEY2>; };
-#define BUILD_3TRG_TD(NAME, KEY1, KEY2, KEY3) NAME: NAME { compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <KEY1>, <KEY2>, <KEY3>; };
+#define BUILD_2KEY_TD(NAME, KEY1, KEY2) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <&kp KEY1>, <&kp KEY2>; };
+#define BUILD_3KEY_TD(NAME, KEY1, KEY2, KEY3) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <&kp KEY1>, <&kp KEY2>, <kp KEY3>; };
+#define BUILD_2TRG_TD(NAME, KEY1, KEY2) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <KEY1>, <KEY2>; };
+#define BUILD_3TRG_TD(NAME, KEY1, KEY2, KEY3) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <KEY1>, <KEY2>, <KEY3>; };
 
 #define COMBO_TIMEOUT_MS 30
 #define COMBO_REQUIRE_PRIOR_IDLE_MS 100
 
-#define BUILD_GLOBAL_COMBO(NAME, BINDING, KEYPOS) { timeout_ms = <COMBO_TIMEOUT_MS>; require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; key-positions = <KEYPOS>, bindings = <BINDING>; };
-#define BUILD_LIMITED_COMBO(NAME, BINDING, KEYPOS, LAYERS) { timeout_ms = <COMBO_TIMEOUT_MS>; require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; key-positions = <KEYPOS>, bindings = <BINDING>; layers = <LAYERS>; };
+#define BUILD_GLOBAL_COMBO(NAME, BINDING, KEYPOS) NAME { timeout_ms = <COMBO_TIMEOUT_MS>; require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; key-positions = <KEYPOS>; bindings = <BINDING>; };
+#define BUILD_LIMITED_COMBO(NAME, BINDING, KEYPOS, LAYERS) NAME { timeout_ms = <COMBO_TIMEOUT_MS>; require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; key-positions = <KEYPOS>; bindings = <BINDING>; layers = <LAYERS>; };
 / {
     combos {
       combatible = "zmk, combos";
-      BUILD_LIMITED_COMBO(to_gme, &to 7, 1 5, 0 ) //Q-T on bse
-      BUILD_LIMITED_COMBO(to_base, &to 0, 5,29, 7) //T+V on gme
+      BUILD_LIMITED_COMBO(to_gme,   &to 7, 1  5, 0) //Q-T on bse
+      BUILD_LIMITED_COMBO(to_base,  &to 0, 5 29, 7) //T+V on gme
       BUILD_LIMITED_COMBO(capsword, &caps_word, 17 18, 0) //G+H on on bse
       
-      BUILD_GLOBAL_COMBO(left_reset, &sys_reset, 5 36 38)
+      BUILD_GLOBAL_COMBO(left_reset,  &sys_reset, 5 36 38)
       BUILD_GLOBAL_COMBO(right_reset, &sys_reset, 6 39 41)
-      BUILD_GLOBAL_COMBO(left_bootloader, &bootloader, 0 36 38)
+      BUILD_GLOBAL_COMBO(left_bootloader,  &bootloader,  1 36 38)
       BUILD_GLOBAL_COMBO(right_bootloader, &bootloader, 10 39 41)
 
-      BUILD_GLOBAL_COMBO(bt_disconnect_0, &bt BT_DISC 0, 29 30 36)
-      BUILD_GLOBAL_COMBO(bt_disconnect_1, &bt BT_DISC 1, 29 31 36)
-      BUILD_GLOBAL_COMBO(bt_disconnect_2, &bt BT_DISC 2, 29 32 36)
-      BUILD_GLOBAL_COMBO(bt_disconnect_3, &bt BT_DISC 3, 29 33 36)
-      BUILD_GLOBAL_COMBO(bt_clear, &bt BT_CLR, 29 25 36)
+      BUILD_GLOBAL_COMBO(bt_disconnect_0, &bt BT_DISC 0,  29 30 36)
+      BUILD_GLOBAL_COMBO(bt_disconnect_1, &bt BT_DISC 1,  29 31 36)
+      BUILD_GLOBAL_COMBO(bt_disconnect_2, &bt BT_DISC 2,  29 32 36)
+      BUILD_GLOBAL_COMBO(bt_disconnect_3, &bt BT_DISC 3,  29 33 36)
+      BUILD_GLOBAL_COMBO(bt_clear, &bt BT_CLR,            29 25 36)
   };
 };
 
