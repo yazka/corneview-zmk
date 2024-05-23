@@ -157,7 +157,6 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_LT(lh_lt, &mo, &kp, KEYS_R)          // left-hand LTs
     BUILD_HRM(rh_mt, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
     BUILD_LT(rh_lt, &mo, &kp, KEYS_L)          // right-hand LTs
-/*
 
     //Tap dances, triple press to activate
     BUILD_3TRG_TD(td_out_tog,XXX,XXX,&out OUT_TOG)
@@ -186,7 +185,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_2KEY_TD(td_minus_under, MINUS, UNDER)
     BUILD_2KEY_TD(td_semi_equal, SEMI, EQUAL)
     BUILD_2KEY_TD(td_colon_hash, COLON, HASH)
-*/
+
   };
 };
 /*
@@ -216,20 +215,6 @@ ZMK_LAYER(Dummy,
   keymap{
     combatible = "zmk,keymap";
 
-    Base {
-      bindings = <
-     // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-XXX       &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y              &kp U           &kp I            &kp O          &kp P       XXX
-     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-XXX       &lh_mt LGUI A   &lh_mt LALT S  &lh_mt LCTRL D  &lh_mt LSHFT F   &kp G               &kp H           &rh_mt RSHFT J  &rh_mt RCTRL K  &rh_mt RALT L   &rh_mt RGUI SQT XXX
-     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-XXX       &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH       XXX
-     // ╰───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-                                         &kp TAB          &kp SPACE       &kp RET             &kp ESCAPE      &kp BACKSPACE  &kp DEL
-     //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
-      >;
-    };
-/*
     Base {
       bindings = <
      // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
@@ -355,7 +340,6 @@ XXX       &kp T         &kp G         &kp B         &kp N         &kp M         
      //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
       >;
     };
-    */
   };
 };
 /* Vim: set ft=c: */ 
