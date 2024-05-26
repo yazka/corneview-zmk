@@ -32,9 +32,12 @@
 #define XXX &none
 #define ___ &trans
 
+/*
+original HRMs, positional hold triggers do not work for some reason ie. positions do not limit the activation
+
 / {
   behaviors {
-    rh_hrm: rh_hrm {
+    rh_hrm: homerowmod_right {
         compatible = "zmk,behavior-hold-tap";
         bindings = <&kp>, <&kp>;
         #binding-cells = <2>;
@@ -47,7 +50,7 @@
         hold-trigger-on-release;
     };
 
-    lh_hrm: lh_hrm {
+    lh_hrm: homerowmod_left {
         compatible = "zmk,behavior-hold-tap";
         bindings = <&kp>, <&kp>;
         #binding-cells = <2>;
@@ -61,6 +64,33 @@
     };
   };
 };
+
+*/
+
+/ {
+  behaviors {
+    lh_hrm: left_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-unless-interrupted";
+        tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+        quick-tap-ms = <200>;
+        bindings = <&kp>, <&kp>;
+        hold-trigger-key-positions = <KEYS_R KEYS_T>;    // <---[[right-hand keys]]
+    };
+
+    rh_hrm: right_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-unless-interrupted";
+        tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+        quick-tap-ms = <200>;
+        bindings = <&kp>, <&kp>;
+        hold-trigger-key-positions = <KEYS_L KEYS_T>;    // <---[[left-hand keys]]
+    };
+  };
+};
+
 / {
   keymap{
     compatible = "zmk,keymap";
