@@ -105,21 +105,40 @@ Need to test different modifiers to see what breaks positional hold:
   quick-tap-ms = <175>; //tap if same key is pressed within this time. Useful for bspace etc, tap-hold will keep the key pressed.
   require-prior-idle-ms = <150>; //like quick-tap-ms except applies to all keys, no hold-tap if writing quickly   
 
-1. try:
+1. try: works!
   tap-unless-interrupted seems suboptimal, try hold-preferred first
   remove quick-tap-ms, not needed on hrm  
   add retro-tap
   increase tapping term to 300
   add require-prior-idle-ms 175
 
-2. try:
+2. try: breaks!
   hold-trigger-on-release; //resolve hold-tap positional keys after first key release so it's possible to combine mods
 
 3. try:
-  shift bottom row, add shifts to 25,34
+  shift bottom row, add shifts to 25,34. Will lose two keys, maybe leave COMMA and SQT on base layer so FSLH and DOT will go. Maybe replace them with tapdances later
   switch RALT to LALT on L, add RALT to both sides for L3 mods
   new mods from medial to lateral CTRL,LALT,GUI,RALT and shifts on lat bottom row
 
+
+/ {
+  keymap{
+    compatible = "zmk,keymap";
+    Base {
+      bindings = <
+     // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
+XXX       &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y              &kp U           &kp I            &kp O          &kp P       XXX
+     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+XXX       &lh_hrm LGUI A  &lh_hrm LALT S  &lh_hrm LCTRL D &lh_hrm LSHFT F &kp G               &kp H           &rh_hrm RSHFT J &rh_hrm RCTRL K &rh_hrm RALT L  &rh_hrm RGUI SQT XXX
+     // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+XXX       &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH       XXX
+     // ╰───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
+                                         &kp TAB          &kp SPACE       &kp RET             &kp ESCAPE      &kp BACKSPACE  &kp DEL
+     //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
+      >;
+    };
+  };
+};
 
 */
 
@@ -133,7 +152,6 @@ Need to test different modifiers to see what breaks positional hold:
         require-prior-idle-ms = <175>;
         bindings = <&kp>, <&kp>;
         retro-tap;
-        hold-trigger-on-release;
         hold-trigger-key-positions = <KEYS_R KEYS_T>;    
     };
 
@@ -145,7 +163,6 @@ Need to test different modifiers to see what breaks positional hold:
         require-prior-idle-ms = <175>;
         bindings = <&kp>, <&kp>;
         retro-tap;
-        hold-trigger-on-release;
         hold-trigger-key-positions = <KEYS_L KEYS_T>;
     };
   };
@@ -157,11 +174,11 @@ Need to test different modifiers to see what breaks positional hold:
     Base {
       bindings = <
      // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-XXX       &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y              &kp U           &kp I            &kp O          &kp P       XXX
+XXX       &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y              &kp U           &kp I            &kp O          &kp P        XXX
      // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-XXX       &lh_hrm LGUI A  &lh_hrm LALT S  &lh_hrm LCTRL D &lh_hrm LSHFT F &kp G               &kp H           &rh_hrm RSHFT J &rh_hrm RCTRL K &rh_hrm RALT L  &rh_hrm RGUI SQT XXX
+XXX       &lh_hrm RALT A  &lh_hrm LGUI S  &lh_hrm LALT D &lh_hrm LCTRL F  &kp G               &kp H          &rh_hrm RCTRL J  &rh_hrm LALT K  &rh_hrm RGUI L &rh_hrm RALT SQT XXX
      // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-XXX       &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH       XXX
+XXX       &kp LSHFT       &kp Z           &kp X           &kp C           &kp V               &kp B             &kp N           &kp M           &kp COMMA       &kp RSHFT     XXX
      // ╰───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
                                          &kp TAB          &kp SPACE       &kp RET             &kp ESCAPE      &kp BACKSPACE  &kp DEL
      //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
