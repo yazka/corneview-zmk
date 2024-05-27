@@ -65,7 +65,7 @@ original HRMs, positional hold triggers do not work for some reason ie. position
   };
 };
 
-*/
+positional keys work in the following behaviors, copy-pasted from docs
 
 / {
   behaviors {
@@ -87,6 +87,62 @@ original HRMs, positional hold triggers do not work for some reason ie. position
         quick-tap-ms = <200>;
         bindings = <&kp>, <&kp>;
         hold-trigger-key-positions = <KEYS_L KEYS_T>;    // <---[[left-hand keys]]
+    };
+  };
+};
+
+Need to test different modifiers to see what breaks positional hold:
+  flavor = "balanced"; //trigger the hold behavior when the tapping-term-ms has expired or another key is pressed and released.
+  flavor = "hold-preferred"; // hold after tapping-term-ms or another keypress
+  flavor = "tap-preferred"; // trigger hold after tapping-term-ms, keypresses do not affect the decision
+  flavor = "tap-unless-interrupted"; //hold if keypress before tapping-term-ms, tap otherwise
+
+  retro-tap; //tap if no other keypress before release 
+  hold-trigger-on-release; //resolve hold-tap positional keys after first key release so it's possible to combine mods
+  hold-while-undecided; //activate hold until keypress for mouse actions etc
+
+  tapping-term-ms = <150>; //decision time until hold, modified by flavor
+  quick-tap-ms = <175>; //tap if same key is pressed within this time. Useful for bspace etc, tap-hold will keep the key pressed.
+  require-prior-idle-ms = <150>; //like quick-tap-ms except applies to all keys, no hold-tap if writing quickly   
+
+1. try:
+  tap-unless-interrupted seems suboptimal, try hold-preferred first
+  remove quick-tap-ms, not needed on hrm  
+  add retro-tap
+  increase tapping term to 300
+  add require-prior-idle-ms 175
+
+2. try:
+  hold-while-undecided; //activate hold until keypress for mouse actions etc
+  hold-trigger-on-release; //resolve hold-tap positional keys after first key release so it's possible to combine mods
+
+
+
+
+*/
+
+/ {
+  behaviors {
+    lh_hrm: left_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <300>;
+        require-prior-idle-ms = <175>;
+        bindings = <&kp>, <&kp>;
+        retro-tap;
+        hold-trigger-key-positions = <KEYS_R KEYS_T>;    
+    };
+
+    rh_hrm: right_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <300>;
+        require-prior-idle-ms = <175>;
+        bindings = <&kp>, <&kp>;
+        retro-tap;
+        hold-trigger-key-positions = <KEYS_L KEYS_T>;
     };
   };
 };
