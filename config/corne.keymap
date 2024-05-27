@@ -4,8 +4,11 @@ try 1:FAILED
   found typo in combo builders,
   now try with combo and td builders
 
-try 2:
+try 2:FAILED
   enable TD, disable combos
+
+try 3:
+  disable TDs, enable combos
 
 corneview default_layer
  -----------------------------------------------------------------------------------------
@@ -194,7 +197,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     bindings = <BINDING>; \
     layers = <LAYERS>; \
   };
-/*
+
 / {
     combos {
       compatible = "zmk, combos";
@@ -216,7 +219,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
       BUILD_GLOBAL_COMBO(bt_clear, &bt BT_CLR,            29 25 36)
   };
 };
-*/
+
 / {
   behaviors {
     // HRMs and LTs have positional hold trigger for contralat kb and HRMs for thumbs too. HRMs have also hold-trigger-on-release.
@@ -225,7 +228,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_LT(lh_lt, &mo, &kp, KEYS_R)          // left-hand LTs
     BUILD_HRM(rh_hrm, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
     BUILD_LT(rh_lt, &mo, &kp, KEYS_L)          // right-hand LTs
-
+/*
     //Tap dances, triple press to activate
     BUILD_3TRG_TD(td_out_tog,XXX,XXX,&out OUT_TOG)
     BUILD_3TRG_TD(td_ep_tog,XXX,XXX,&ext_power EP_TOG)
@@ -253,7 +256,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_2KEY_TD(td_minus_under, MINUS, UNDER)
     BUILD_2KEY_TD(td_semi_equal, SEMI, EQUAL)
     BUILD_2KEY_TD(td_colon_hash, COLON, HASH)
-
+*/
   };
 };
 
