@@ -7,8 +7,11 @@ try 1:FAILED
 try 2:FAILED
   enable TD, disable combos
 
-try 3:
+try 3:FAILED
   disable TDs, enable combos
+
+try 4:
+  space in compatible-string, fixed
 
 corneview default_layer
  -----------------------------------------------------------------------------------------
@@ -200,7 +203,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
 
 / {
     combos {
-      compatible = "zmk, combos";
+      compatible = "zmk,combos";
 
       BUILD_LIMITED_COMBO(to_gme,   &to 7, 1  5, 0) //Q-T on bse
       BUILD_LIMITED_COMBO(to_base,  &to 0, 5 29, 7) //T+V on gme
