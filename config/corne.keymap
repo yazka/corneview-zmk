@@ -22,8 +22,12 @@ try 6:SUCCESS
 try 7:FAILED
   enable 3 keypress TDs
 
-try 8:
+try 8:FAILED
   Q,W,E test td 
+
+try 9:
+  fixed typo in 3 key TD builder
+  enable all TDs
 
 corneview default_layer
  -----------------------------------------------------------------------------------------
@@ -178,7 +182,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
   NAME: NAME { \
     ZMK_TD; \
     tapping-term-ms = <TD_TAPPING_TERM_MS>; \
-    bindings = <&kp KEY1>, <&kp KEY2>, <kp KEY3>; \
+    bindings = <&kp KEY1>, <&kp KEY2>, <&kp KEY3>; \
   };
 //xTRG-combos if they output something besides keypresses like &none, &bt, &ext_power or &out
 #define BUILD_2TRG_TD(NAME, KEY1, KEY2) \
@@ -243,7 +247,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_LT(lh_lt, &mo, &kp, KEYS_R)          // left-hand LTs
     BUILD_HRM(rh_hrm, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
     BUILD_LT(rh_lt, &mo, &kp, KEYS_L)          // right-hand LTs
-/*
+
     //Tap dances, triple press to activate
     BUILD_3TRG_TD(td_out_tog,XXX,XXX,&out OUT_TOG)
     BUILD_3TRG_TD(td_ep_tog,XXX,XXX,&ext_power EP_TOG)
@@ -253,9 +257,6 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_3KEY_TD(td_sqt_dqt_grave, SQT, DQT, GRAVE)
     BUILD_3KEY_TD(td_excl_minus_prcnt, EXCL, MINUS, PRCNT)
     BUILD_3KEY_TD(td_pipe_amps_under, PIPE, AMPS, UNDER)
-
-*/
-    BUILD_3KEY_TD(td_test,Q ,W, E)
 
     BUILD_2KEY_TD(td_lpar_lbrc, LPAR, LBRC)
     BUILD_2KEY_TD(td_rpar_rbrc, RPAR, RBRC)
