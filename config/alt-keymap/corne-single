@@ -1,61 +1,3 @@
-/* 
-
-corneview default_layer
- -----------------------------------------------------------------------------------------
- |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
- | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
- | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-corneview lower_layer
- -----------------------------------------------------------------------------------------
- |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BKSP |
- | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
- | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-                    | GUI |     | SPC |   | ENT |     | ALT |
-
-corneview raise_layer
- -----------------------------------------------------------------------------------------
- |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BKSP |
- | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
- | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-                    | GUI |     | SPC |   | ENT |     | ALT |
-
- =========================================================================================
-
-
-TAB
-CTRL
-SHIFT
-BKSP
-ESC
-
-new plan
- ------------------------------------------------------------------
- |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
- |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  | ' " |
- |SHFT |  Z  |  X  |  C  |  V  |   |  B  |  N   |  M  | . : |SHFT |
-             | GUI | CTRL| SPC |   | ENT | ESC  | ALT |
-
- ------------------------------------------------------------------
- |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
- |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |
- |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-             | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
- ------------------------------------------------------------------
- |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |
- |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |
- |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  |
-             | GUI | LWR | SPC |   | ENT | RSE  | ALT |
-
-
-
-
-
-
-
-*/
 /*                                      42 KEY MATRIX / LAYOUT MAPPING
 
   ╭────────────────────────┬────────────────────────╮ ╭─────────────────────────┬─────────────────────────╮
@@ -73,155 +15,122 @@ new plan
 */
 
 #include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+/*
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/mouse.h>
+*/
 
 #define HOST_OS 1 // 0 for win, 1 for linux, 2 for mac
 #define KEYS_L 0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29
 #define KEYS_R 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35
 #define KEYS_T 36 37 38 39 40 41
 
-// flavor = "hold-preferred"; 
-// swapped HRMs and LTs to balanced for debugging
 #define XXX &none
 #define ___ &trans
 
-#define QUICK_TAP_MS 175
-#define PRIOR_IDLE_MS 150
-#define TAPPING_TERM_MS 300
-
 /*
-//UNICODE-keys
-ZMK_UNICODE_SINGLE(euro_sign, N2, N0, A, C)  // €
-ZMK_UNICODE_PAIR(fi_a,   N0, N0,  E, N4,   N0, N0,  C, N4) // äÄ
-ZMK_UNICODE_PAIR(sv_o,   N0, N0,  E, N5,   N0, N0,  C, N5) // åÅ
-ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
-*/
-
-#define ZMK_HT compatible = "zmk,behavior-hold-tap"; #binding-cells = <2>
-#define ZMK_TD compatible = "zmk,behavior-tap-dance"; #binding-cells = <0>
-
-
-#define HRM_FLAVOR "balanced"
-#define HRM_QUICK_TAP_MS QUICK_TAP_MS
-#define HRM_TAPPING_TERM_MS TAPPING_TERM_MS
-#define HRM_PRIOR_IDLE_MS PRIOR_IDLE_MS
-
-#define LT_FLAVOR "balanced"
-#define LT_QUICK_TAP_MS QUICK_TAP_MS
-#define LT_TAPPING_TERM_MS TAPPING_TERM_MS
-#define LT_PRIOR_IDLE_MS PRIOR_IDLE_MS
-
-#define BUILD_HRM(NAME, HOLD, TAP, TRIGGER_POS) NAME: NAME { ZMK_HT; flavor = HRM_FLAVOR; tapping-term-ms = <HRM_TAPPING_TERM_MS>; quick-tap-ms = <HRM_QUICK_TAP_MS>; require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>; bindings = <HOLD>, <TAP>; hold-trigger-key-positions = <TRIGGER_POS>; hold-trigger-on-release; };
-#define BUILD_LT(NAME, HOLD, TAP, TRIGGER_POS) NAME: NAME { ZMK_HT; flavor = LT_FLAVOR; tapping-term-ms = <LT_TAPPING_TERM_MS>; quick-tap-ms = <LT_QUICK_TAP_MS>; require-prior-idle-ms = <LT_PRIOR_IDLE_MS>; bindings = <HOLD>, <TAP>; hold-trigger-key-positions = <TRIGGER_POS>; };
-
-#define TD_TAPPING_TERM_MS 100
-#define BUILD_2KEY_TD(NAME, KEY1, KEY2) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <&kp KEY1>, <&kp KEY2>; };
-#define BUILD_3KEY_TD(NAME, KEY1, KEY2, KEY3) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <&kp KEY1>, <&kp KEY2>, <kp KEY3>; };
-#define BUILD_2TRG_TD(NAME, KEY1, KEY2) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <KEY1>, <KEY2>; };
-#define BUILD_3TRG_TD(NAME, KEY1, KEY2, KEY3) NAME: NAME { ZMK_TD; tapping-term-ms = <TD_TAPPING_TERM_MS>; bindings = <KEY1>, <KEY2>, <KEY3>; };
-
-#define COMBO_TIMEOUT_MS 30
-#define COMBO_REQUIRE_PRIOR_IDLE_MS 100
-
-#define BUILD_GLOBAL_COMBO(NAME, BINDING, KEYPOS) NAME { timeout_ms = <COMBO_TIMEOUT_MS>; require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; key-positions = <KEYPOS>; bindings = <BINDING>; };
-#define BUILD_LIMITED_COMBO(NAME, BINDING, KEYPOS, LAYERS) NAME { timeout_ms = <COMBO_TIMEOUT_MS>; require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; key-positions = <KEYPOS>; bindings = <BINDING>; layers = <LAYERS>; };
-/ {
-    combos {
-      combatible = "zmk, combos";
-      BUILD_LIMITED_COMBO(to_gme,   &to 7, 1  5, 0) //Q-T on bse
-      BUILD_LIMITED_COMBO(to_base,  &to 0, 5 29, 7) //T+V on gme
-      BUILD_LIMITED_COMBO(capsword, &caps_word, 17 18, 0) //G+H on on bse
-      
-      BUILD_GLOBAL_COMBO(left_reset,  &sys_reset, 5 36 38)
-      BUILD_GLOBAL_COMBO(right_reset, &sys_reset, 6 39 41)
-      BUILD_GLOBAL_COMBO(left_bootloader,  &bootloader,  1 36 38)
-      BUILD_GLOBAL_COMBO(right_bootloader, &bootloader, 10 39 41)
-
-      BUILD_GLOBAL_COMBO(bt_disconnect_0, &bt BT_DISC 0,  29 30 36)
-      BUILD_GLOBAL_COMBO(bt_disconnect_1, &bt BT_DISC 1,  29 31 36)
-      BUILD_GLOBAL_COMBO(bt_disconnect_2, &bt BT_DISC 2,  29 32 36)
-      BUILD_GLOBAL_COMBO(bt_disconnect_3, &bt BT_DISC 3,  29 33 36)
-      BUILD_GLOBAL_COMBO(bt_clear, &bt BT_CLR,            29 25 36)
-  };
-};
+original HRMs, positional hold triggers do not work for some reason ie. positions do not limit the activation
 
 / {
   behaviors {
-    // HRMs and LTs have positional hold trigger for contralat kb and HRMs for thumbs too. HRMs have also hold-trigger-on-release.
+    rh_hrm: homerowmod_right {
+        compatible = "zmk,behavior-hold-tap";
+        bindings = <&kp>, <&kp>;
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <300>;
+        quick-tap-ms = <175>;
+        require-prior-idle-ms = <150>;
+        retro-tap;
+        hold-trigger-key-positions = <KEYS_L KEYS_T>;
+        hold-trigger-on-release;
+    };
 
-    BUILD_HRM(lh_mt, &kp, &kp, KEYS_R KEYS_T)  // left-hand HRMs
-    BUILD_LT(lh_lt, &mo, &kp, KEYS_R)          // left-hand LTs
-    BUILD_HRM(rh_mt, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
-    BUILD_LT(rh_lt, &mo, &kp, KEYS_L)          // right-hand LTs
-/*
-
-    //Tap dances, triple press to activate
-    BUILD_3TRG_TD(td_out_tog,XXX,XXX,&out OUT_TOG)
-    BUILD_3TRG_TD(td_ep_tog,XXX,XXX,&ext_power EP_TOG)
-
-    //Tap dances for Sym and Num-layers
-
-    BUILD_3KEY_TD(td_at_dollar_caret, AT, DOLLAR, CARET)
-    BUILD_3KEY_TD(td_sqt_dqt_grave, SQT, DQT, GRAVE)
-    BUILD_3KEY_TD(td_excl_minus_prcnt, EXCL, MINUS, PRCNT)
-    BUILD_3KEY_TD(td_pipe_amps_under, PIPE, AMPS, UNDER)
-    BUILD_2KEY_TD(td_lpar_lbrc, LPAR, LBRC)
-    BUILD_2KEY_TD(td_rpar_rbrc, RPAR, RBRC)
-    BUILD_2KEY_TD(td_flsh_blsh, FSLH, BACKSLASH)
-    BUILD_2KEY_TD(td_qmark_star, QMARK, STAR)
-    BUILD_2KEY_TD(td_tilde_plus, TILDE, PLUS)
-    BUILD_2KEY_TD(td_lt_lbrk, LT, LEFT_BRACKET)
-    BUILD_2KEY_TD(td_gt_rbrk, GT, RIGHT_BRACKET)
-    BUILD_2KEY_TD(td_star_caret, STAR, CARET)
-    BUILD_2KEY_TD(td_7_grave, N7, GRAVE)
-    BUILD_2KEY_TD(td_8_lpar, N8, LPAR)
-    BUILD_2KEY_TD(td_9_rpar, N9, RPAR)
-    BUILD_2KEY_TD(td_5_prcnt, N5, PRCNT)
-    BUILD_2KEY_TD(td_0_comma, N0, COMMA)
-    BUILD_2KEY_TD(td_1_dot, N1, DOT)
-    BUILD_2KEY_TD(td_minus_under, MINUS, UNDER)
-    BUILD_2KEY_TD(td_semi_equal, SEMI, EQUAL)
-    BUILD_2KEY_TD(td_colon_hash, COLON, HASH)
-*/
+    lh_hrm: homerowmod_left {
+        compatible = "zmk,behavior-hold-tap";
+        bindings = <&kp>, <&kp>;
+        #binding-cells = <2>;
+        flavor = "balanced";
+        tapping-term-ms = <300>;
+        quick-tap-ms = <175>;
+        require-prior-idle-ms = <150>;
+        retro-tap;
+        hold-trigger-key-positions = <KEYS_R KEYS_T>;
+        hold-trigger-on-release;
+    };
   };
 };
-/*
-ZMK_LAYER(--layername--,
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-// ╰─────────────┴─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┴─────────────╯
-//                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-)
-*/
 
-/*
-ZMK_LAYER(Dummy,
-          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none
-          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none
-          &none         &none         &none         &none         &none                  &none         &none         &none         &none         &none
-                                      &none         &none         &none                  &none         &none         &none
-)
-*/
+positional keys work in the following behaviors, copy-pasted from docs
 
-/*
- Mouse layer is WIP, no mouse movement code yet.
- plan is to set up mouse movement on RM0-3 and either wheel or drag on RB0-3 and RClk,MClk,LClk on RH0-2
-*/
+/ {
+  behaviors {
+    lh_hrm: left_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-unless-interrupted";
+        tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+        quick-tap-ms = <200>;
+        bindings = <&kp>, <&kp>;
+        hold-trigger-key-positions = <KEYS_R KEYS_T>;    // <---[[right-hand keys]]
+    };
+
+    rh_hrm: right_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "tap-unless-interrupted";
+        tapping-term-ms = <100>;                        // <---[[produces tap if held longer than tapping-term-ms]]
+        quick-tap-ms = <200>;
+        bindings = <&kp>, <&kp>;
+        hold-trigger-key-positions = <KEYS_L KEYS_T>;    // <---[[left-hand keys]]
+    };
+  };
+};
+
+Need to test different modifiers to see what breaks positional hold:
+  flavor = "balanced"; //trigger the hold behavior when the tapping-term-ms has expired or another key is pressed and released.
+  flavor = "hold-preferred"; // hold after tapping-term-ms or another keypress
+  flavor = "tap-preferred"; // trigger hold after tapping-term-ms, keypresses do not affect the decision
+  flavor = "tap-unless-interrupted"; //hold if keypress before tapping-term-ms, tap otherwise
+
+  retro-tap; //tap if no other keypress before release 
+  hold-trigger-on-release; //resolve hold-tap positional keys after first key release so it's possible to combine mods
+  hold-while-undecided; //activate hold until keypress for mouse actions etc
+
+  tapping-term-ms = <150>; //decision time until hold, modified by flavor
+  quick-tap-ms = <175>; //tap if same key is pressed within this time. Useful for bspace etc, tap-hold will keep the key pressed.
+  require-prior-idle-ms = <150>; //like quick-tap-ms except applies to all keys, no hold-tap if writing quickly   
+
+1. try: works!
+  tap-unless-interrupted seems suboptimal, try hold-preferred first
+  remove quick-tap-ms, not needed on hrm  
+  add retro-tap
+  increase tapping term to 300
+  add require-prior-idle-ms 175
+
+2. try: breaks!
+  hold-trigger-on-release; //resolve hold-tap positional keys after first key release so it's possible to combine mods
+
+3. try: works!
+  removed hold-trigger-on-release
+  shift bottom row, add shifts to 25,34. Will lose two keys, maybe leave COMMA and SQT on base layer so FSLH and DOT will go. Maybe replace them with tapdances later
+  switch RALT to LALT on L, add RALT to both sides for L3 mods
+  new mods from medial to lateral CTRL,LALT,GUI,RALT and shifts on lat bottom row
+
+
 / {
   keymap{
-    combatible = "zmk,keymap";
-
+    compatible = "zmk,keymap";
     Base {
       bindings = <
      // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
 XXX       &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y              &kp U           &kp I            &kp O          &kp P       XXX
      // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-XXX       &lh_mt LGUI A   &lh_mt LALT S  &lh_mt LCTRL D  &lh_mt LSHFT F   &kp G               &kp H           &rh_mt RSHFT J  &rh_mt RCTRL K  &rh_mt RALT L   &rh_mt RGUI SQT XXX
+XXX       &lh_hrm LGUI A  &lh_hrm LALT S  &lh_hrm LCTRL D &lh_hrm LSHFT F &kp G               &kp H           &rh_hrm RSHFT J &rh_hrm RCTRL K &rh_hrm RALT L  &rh_hrm RGUI SQT XXX
      // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
 XXX       &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH       XXX
      // ╰───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
@@ -229,133 +138,53 @@ XXX       &kp Z           &kp X           &kp C           &kp V           &kp B 
      //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
       >;
     };
-/*
+  };
+};
+
+*/
+
+/ {
+  behaviors {
+    lh_hrm: left_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <300>;
+        require-prior-idle-ms = <175>;
+        bindings = <&kp>, <&kp>;
+        retro-tap;
+        hold-trigger-key-positions = <KEYS_R KEYS_T>;    
+    };
+
+    rh_hrm: right_positional_hold_tap {
+        compatible = "zmk,behavior-hold-tap";
+        #binding-cells = <2>;
+        flavor = "hold-preferred";
+        tapping-term-ms = <300>;
+        require-prior-idle-ms = <175>;
+        bindings = <&kp>, <&kp>;
+        retro-tap;
+        hold-trigger-key-positions = <KEYS_L KEYS_T>;
+    };
+  };
+};
+
+/ {
+  keymap{
+    compatible = "zmk,keymap";
     Base {
       bindings = <
      // ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮   ╭───────────────┬───────────────┬───────────────┬───────────────┬───────────────╮
-XXX       &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y              &kp U           &kp I            &kp O          &kp P       XXX
+XXX       &kp Q           &kp W           &kp E           &kp R           &kp T               &kp Y              &kp U           &kp I            &kp O          &kp P        XXX
      // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-XXX       &lh_mt LGUI A   &lh_mt LALT S  &lh_mt LCTRL D  &lh_mt LSHFT F   &kp G               &kp H          &rh_mt RSHFT J  &rh_mt RCTRL K  &rh_mt RALT L   &rh_mt RGUI SQT XXX
+XXX       &lh_hrm RALT A  &lh_hrm LGUI S  &lh_hrm LALT D &lh_hrm LCTRL F  &kp G               &kp H          &rh_hrm RCTRL J  &rh_hrm LALT K  &rh_hrm RGUI L &rh_hrm RALT SQT XXX
      // ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-XXX       &kp Z           &kp X           &kp C           &kp V           &kp B               &kp N           &kp M           &kp COMMA       &kp DOT         &kp FSLH       XXX
+XXX       &kp LSHFT       &kp Z           &kp X           &kp C           &kp V               &kp B             &kp N           &kp M           &kp COMMA       &kp RSHFT     XXX
      // ╰───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤   ├───────────────┼───────────────┼───────────────┼───────────────┼───────────────┤
-                                         &lh_lt 1 TAB   &lh_lt 2 SPACE   &lh_lt 3 RET       &rh_lt 4 ESCAPE &rh_lt 5 BACKSPACE  &rh_lt 6 DEL
+                                         &kp TAB          &kp SPACE       &kp RET             &kp ESCAPE      &kp BACKSPACE  &kp DEL
      //                                 ╰───────────────┴───────────────┴───────────────╯   ╰───────────────┴───────────────┴───────────────╯
       >;
     };
-
-    Media {
-      bindings = <
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭───────────────┬─────────────────┬─────────────────┬───────────────┬───────────────╮
-XXX       &none         &none         &none         &none         &none             &kp F18         &kp F19           &kp F20           &kp F21         &kp F22        XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼─────────────────┼─────────────────┼───────────────┼───────────────┤
-XXX       &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &none             &kp C_REWIND   &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp C_FF        &td_ep_tog     XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼─────────────────┼─────────────────┼───────────────┼───────────────┤
-XXX       &none         &none         &none         &none         &none             &bt BT_SEL 0    &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3    &td_out_tog    XXX
-     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├───────────────┼─────────────────┼─────────────────┼───────────────┼───────────────┤
-                                      &trans        &none         &none             &kp C_STOP      &kp C_PLAY_PAUSE  &kp C_MUTE
-     //                             ╰─────────────┴─────────────┴─────────────╯   ╰───────────────┴─────────────────┴─────────────────╯
-      >;
-    };
-
-    Navi {
-      bindings = <
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-XXX       &none         &none         &none         &none         &none             &kp F13       &kp F14       &kp F15       &kp F16       &kp F17      XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &none             &kp LEFT      &kp DOWN      &kp UP        &kp RIGHT     &kp CLCK     XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &none         &none         &none         &none         &none             &kp HOME      &kp PG_DN     &kp PG_UP     &kp END       &kp INS      XXX
-     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &none         &trans        &none             &kp F23       &kp K_APP     &kp F24
-     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-      >;
-    };
-
-    Mouse {
-      bindings = <
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-XXX       &none         &none         &none         &none         &none             &kp K_REDO    &kp K_PASTE   &kp K_COPY    &kp K_CUT     &kp K_UNDO   XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp LGUI      &kp LALT      &kp LCTRL     &kp LSHFT     &none             &none         &none         &none         &none         &none        XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &none         &none         &none         &none         &none             &none         &none         &none         &none         &none        XXX
-     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &none         &none         &trans            &mkp LCLK     &mkp MCLK     &mkp RCLK
-     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-      >;
-    };
-
-    Sym {
-      bindings = <
-     // ╭─────────────────────┬─────────────────────┬─────────────────────┬─────────────────────┬─────────────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-XXX       &td_at_dollar_caret   &td_sqt_dqt_grave     &td_lpar_lbrc         &td_rpar_rbrc         &td_flsh_blsh              &none         &none         &none         &none         &none       XXX
-     // ├─────────────────────┼─────────────────────┼─────────────────────┼─────────────────────┼─────────────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &td_semi_equal        &td_colon_hash        &td_excl_minus_prcnt  &td_qmark_star        &td_tilde_plus             &none         &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI    XXX
-     // ├─────────────────────┼─────────────────────┼─────────────────────┼─────────────────────┼─────────────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp COMMA             &kp DOT               &td_lt_lbrk           &td_gt_rbrk           &td_pipe_amps_under        &none         &none         &none         &none         &none       XXX
-     // ╰─────────────────────┼─────────────────────┼─────────────────────┼─────────────────────┼─────────────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                                      &kp TAB               &kp SPACE             &kp RET                    &trans        &none         &none
-     //                                             ╰─────────────────────┴─────────────────────┴─────────────────────╯   ╰─────────────┴─────────────┴─────────────╯
-      >;
-    };
-
-    Num {
-      bindings = <
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-XXX      &td_star_caret &td_7_grave  &td_8_lpar    &td_9_rpar    &td_flsh_blsh      &none         &none         &none         &none         &none        XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp EQUAL     &kp N4        &td_5_prcnt   &kp N6        &kp KP_PLUS       &none         &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI     XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &td_0_comma   &td_1_dot     &kp N2        &kp N3        &td_minus_under   &none         &none         &none         &none         &none        XXX
-     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &kp TAB       &kp SPACE     &kp RET           &none         &trans        &none
-     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-      >;
-    };
-
-    Func {
-      bindings = <
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-XXX       &kp F12       &kp F7        &kp F8        &kp F9        &kp PSCRN         &none         &none         &none         &none         &none        XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp F11       &kp F4        &kp F5        &kp F6        &kp SCROLLLOCK    &none         &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI     XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp F10       &kp F1        &kp F2        &kp F3        &kp PAUSE_BREAK   &none         &none         &none         &none         &none        XXX
-     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &kp TAB       &kp SPACE     &kp RET           &none         &none         &trans
-     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-      >;
-    };
-
-    Game {
-      bindings = <
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-XXX       &kp ESC       &kp Q         &kp W         &kp E         &kp R             &none         &none         &none         &none         &none        XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp TAB       &kp A         &kp S         &kp D         &kp F             &none         &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI     XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp LSHFT     &kp Z         &kp X         &kp C         &kp V             &none         &none         &none         &none         &none        XXX
-     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                      &kp LCTRL     &kp SPACE     &mo 8             &none         &none         &none
-     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-      >;
-    };
-
-    Galt {
-      bindings = <
-     // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-XXX       &kp N1        &kp N2        &kp N3        &kp N4        &kp N5            &none         &none         &none         &none         &none        XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp N6        &kp N7        &kp N8        &kp N9        &kp N0            &none         &kp RSHFT     &kp RCTRL     &kp RALT      &kp RGUI     XXX
-     // ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-XXX       &kp T         &kp G         &kp B         &kp N         &kp M             &none         &none         &none         &none         &none        XXX
-     // ╰─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤   ├─────────────┼─────────────┼─────────────┼─────────────┼─────────────┤
-                                       &none         &none        &trans            &none         &none         &none
-     //                             ╰─────────────┴─────────────┴─────────────╯   ╰─────────────┴─────────────┴─────────────╯
-      >;
-    };
-    */
   };
 };
 /* Vim: set ft=c: */ 
