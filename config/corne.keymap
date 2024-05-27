@@ -1,5 +1,9 @@
 /* 
 
+try 1 
+  found typo in combo builders,
+  now try with combo and td builders
+
 corneview default_layer
  -----------------------------------------------------------------------------------------
  |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BKSP |
@@ -187,10 +191,11 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     bindings = <BINDING>; \
     layers = <LAYERS>; \
   };
-/*
+
 / {
     combos {
-      combatible = "zmk, combos";
+      compatible = "zmk, combos";
+
       BUILD_LIMITED_COMBO(to_gme,   &to 7, 1  5, 0) //Q-T on bse
       BUILD_LIMITED_COMBO(to_base,  &to 0, 5 29, 7) //T+V on gme
       BUILD_LIMITED_COMBO(capsword, &caps_word, 17 18, 0) //G+H on on bse
@@ -208,7 +213,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
       BUILD_GLOBAL_COMBO(bt_clear, &bt BT_CLR,            29 25 36)
   };
 };
-*/
+
 / {
   behaviors {
     // HRMs and LTs have positional hold trigger for contralat kb and HRMs for thumbs too. HRMs have also hold-trigger-on-release.
@@ -217,9 +222,6 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_LT(lh_lt, &mo, &kp, KEYS_R)          // left-hand LTs
     BUILD_HRM(rh_hrm, &kp, &kp, KEYS_L KEYS_T)  // right-hand HRMs
     BUILD_LT(rh_lt, &mo, &kp, KEYS_L)          // right-hand LTs
-  };
-};
-/*
 
     //Tap dances, triple press to activate
     BUILD_3TRG_TD(td_out_tog,XXX,XXX,&out OUT_TOG)
@@ -251,7 +253,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
 
   };
 };
-*/
+
 /*
 ZMK_LAYER(--layername--,
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
