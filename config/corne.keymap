@@ -1,8 +1,11 @@
 /* 
 
-try 1 
+try 1:FAILED
   found typo in combo builders,
   now try with combo and td builders
+
+try 2:
+  enable TD, disable combos
 
 corneview default_layer
  -----------------------------------------------------------------------------------------
@@ -191,7 +194,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     bindings = <BINDING>; \
     layers = <LAYERS>; \
   };
-
+/*
 / {
     combos {
       compatible = "zmk, combos";
@@ -213,7 +216,7 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
       BUILD_GLOBAL_COMBO(bt_clear, &bt BT_CLR,            29 25 36)
   };
 };
-
+*/
 / {
   behaviors {
     // HRMs and LTs have positional hold trigger for contralat kb and HRMs for thumbs too. HRMs have also hold-trigger-on-release.
