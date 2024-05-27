@@ -16,8 +16,11 @@ try 4:FAILED
 try 5:SUCCESS
   timeout-ms typo fixed in combo builders
 
-try 6:
+try 6:SUCCESS
   enable 2 keypress TDs
+
+try 7:
+  enable 3 keypress TDs
 
 corneview default_layer
  -----------------------------------------------------------------------------------------
@@ -243,12 +246,12 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
     BUILD_3TRG_TD(td_ep_tog,XXX,XXX,&ext_power EP_TOG)
 
     //Tap dances for Sym and Num-layers
-
+*/
     BUILD_3KEY_TD(td_at_dollar_caret, AT, DOLLAR, CARET)
     BUILD_3KEY_TD(td_sqt_dqt_grave, SQT, DQT, GRAVE)
     BUILD_3KEY_TD(td_excl_minus_prcnt, EXCL, MINUS, PRCNT)
     BUILD_3KEY_TD(td_pipe_amps_under, PIPE, AMPS, UNDER)
-*/
+
     BUILD_2KEY_TD(td_lpar_lbrc, LPAR, LBRC)
     BUILD_2KEY_TD(td_rpar_rbrc, RPAR, RBRC)
     BUILD_2KEY_TD(td_flsh_blsh, FSLH, BACKSLASH)
