@@ -113,10 +113,12 @@ Need to test different modifiers to see what breaks positional hold:
   add require-prior-idle-ms 175
 
 2. try:
-  hold-while-undecided; //activate hold until keypress for mouse actions etc
   hold-trigger-on-release; //resolve hold-tap positional keys after first key release so it's possible to combine mods
 
-
+3. try:
+  shift bottom row, add shifts to 25,34
+  switch RALT to LALT on L, add RALT to both sides for L3 mods
+  new mods from medial to lateral CTRL,LALT,GUI,RALT and shifts on lat bottom row
 
 
 */
@@ -131,6 +133,7 @@ Need to test different modifiers to see what breaks positional hold:
         require-prior-idle-ms = <175>;
         bindings = <&kp>, <&kp>;
         retro-tap;
+        hold-trigger-on-release;
         hold-trigger-key-positions = <KEYS_R KEYS_T>;    
     };
 
@@ -142,6 +145,7 @@ Need to test different modifiers to see what breaks positional hold:
         require-prior-idle-ms = <175>;
         bindings = <&kp>, <&kp>;
         retro-tap;
+        hold-trigger-on-release;
         hold-trigger-key-positions = <KEYS_L KEYS_T>;
     };
   };
