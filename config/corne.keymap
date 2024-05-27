@@ -10,8 +10,11 @@ try 2:FAILED
 try 3:FAILED
   disable TDs, enable combos
 
-try 4:
+try 4:FAILED
   space in compatible-string, fixed
+
+try 5:
+  timeout-ms typo fixed in combo builders
 
 corneview default_layer
  -----------------------------------------------------------------------------------------
@@ -187,14 +190,14 @@ ZMK_UNICODE_PAIR(fi_o,   N0, N0,  F, N6,   N0, N0,  D, N6) // öÖ
 
 #define BUILD_GLOBAL_COMBO(NAME, BINDING, KEYPOS) \
   NAME { \
-    timeout_ms = <COMBO_TIMEOUT_MS>; \
+    timeout-ms = <COMBO_TIMEOUT_MS>; \
     require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; \
     key-positions = <KEYPOS>; \
     bindings = <BINDING>; \
   };
 #define BUILD_LIMITED_COMBO(NAME, BINDING, KEYPOS, LAYERS) \
   NAME { \
-    timeout_ms = <COMBO_TIMEOUT_MS>; \
+    timeout-ms = <COMBO_TIMEOUT_MS>; \
     require-prior-idle-ms = <COMBO_REQUIRE_PRIOR_IDLE_MS>; \
     key-positions = <KEYPOS>; \
     bindings = <BINDING>; \
